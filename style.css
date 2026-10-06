@@ -1,0 +1,8051 @@
+* {
+
+    box-sizing: border-box;
+
+}
+
+:root {
+
+    --bg: #070910;
+
+    --surface: #10131d;
+
+    --surface-2: #171b27;
+
+    --surface-3: #202536;
+
+    --text: #f7f8ff;
+
+    --muted: #9ca4b8;
+
+    --border: rgba(255,255,255,.09);
+
+    --purple: #765cff;
+
+    --pink: #ff4f91;
+
+    --blue: #38bdf8;
+
+    --green: #39d98a;
+
+    --orange: #ff9f43;
+
+    --danger: #ff5575;
+
+    --shadow: 0 20px 60px rgba(0,0,0,.45);
+
+}
+
+html,
+
+body {
+
+    margin: 0;
+
+    min-height: 100%;
+
+}
+
+body {
+
+    min-height: 100vh;
+
+    background:
+
+        radial-gradient(circle at 20% 10%, rgba(118,92,255,.18), transparent 30%),
+
+        radial-gradient(circle at 80% 90%, rgba(255,79,145,.13), transparent 30%),
+
+        #03040a;
+
+    color: var(--text);
+
+    font-family:
+
+        Inter,
+
+        ui-sans-serif,
+
+        system-ui,
+
+        -apple-system,
+
+        BlinkMacSystemFont,
+
+        "Segoe UI",
+
+        sans-serif;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px;
+
+}
+
+/* PHONE */
+
+.phone-shell {
+
+    width: min(100%, 430px);
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+.phone {
+
+    width: 100%;
+
+    height: min(900px, 94vh);
+
+    min-height: 620px;
+
+    background: #11131a;
+
+    border: 7px solid #191b22;
+
+    border-radius: 48px;
+
+    box-shadow:
+
+        0 40px 100px rgba(0,0,0,.6),
+
+        inset 0 0 0 2px rgba(255,255,255,.05);
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+.dynamic-island {
+
+    position: absolute;
+
+    top: 11px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 110px;
+
+    height: 28px;
+
+    background: #020205;
+
+    border-radius: 20px;
+
+    z-index: 100;
+
+    box-shadow: inset 0 1px 3px rgba(255,255,255,.06);
+
+}
+
+.screen {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    overflow: hidden;
+
+    background: var(--bg);
+
+}
+
+/* STATUS BAR */
+
+.status-bar {
+
+    position: absolute;
+
+    top: 0;
+
+    left: 0;
+
+    right: 0;
+
+    height: 55px;
+
+    padding: 13px 22px 0;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    z-index: 50;
+
+    pointer-events: none;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+}
+
+.status-right {
+
+    letter-spacing: 1px;
+
+}
+
+/* APP ROOT */
+
+#app-root {
+
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+
+}
+
+.view {
+
+    position: absolute;
+
+    inset: 0;
+
+    display: none;
+
+    overflow-y: auto;
+
+    overflow-x: hidden;
+
+    padding: 65px 17px 100px;
+
+    scrollbar-width: none;
+
+    animation: viewIn .2s ease;
+
+}
+
+.view::-webkit-scrollbar {
+
+    display: none;
+
+}
+
+.view.active {
+
+    display: block;
+
+}
+
+@keyframes viewIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(5px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+button,
+
+input,
+
+textarea {
+
+    font: inherit;
+
+}
+
+button {
+
+    border: 0;
+
+    color: inherit;
+
+    cursor: pointer;
+
+}
+
+button:active {
+
+    transform: scale(.97);
+
+}
+
+/* HOME */
+
+.home-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+}
+
+.eyebrow {
+
+    margin: 0 0 5px;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+}
+
+.home-top h1 {
+
+    margin: 0;
+
+    font-size: 30px;
+
+    line-height: 1;
+
+    letter-spacing: -1px;
+
+}
+
+.version-badge {
+
+    display: inline-flex;
+
+    width: 26px;
+
+    height: 26px;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background: linear-gradient(135deg, var(--purple), var(--pink));
+
+    font-size: 14px;
+
+    vertical-align: middle;
+
+    box-shadow: 0 5px 18px rgba(118,92,255,.35);
+
+}
+
+.profile-button {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 16px;
+
+    background: var(--surface-2);
+
+    border: 1px solid var(--border);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 2px;
+
+    font-weight: 900;
+
+}
+
+.hero-card {
+
+    margin-top: 22px;
+
+    padding: 22px;
+
+    min-height: 150px;
+
+    border-radius: 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    background:
+
+        radial-gradient(circle at 90% 0%, rgba(255,255,255,.22), transparent 25%),
+
+        linear-gradient(135deg, #6551ed, #b13f8d);
+
+    box-shadow:
+
+        0 18px 45px rgba(118,92,255,.25);
+
+}
+
+.hero-label {
+
+    display: block;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    letter-spacing: 1.5px;
+
+    opacity: .75;
+
+}
+
+.hero-card strong {
+
+    display: block;
+
+    margin-top: 7px;
+
+    font-size: 36px;
+
+}
+
+.hero-card p {
+
+    margin: 4px 0 0;
+
+    opacity: .8;
+
+    font-size: 12px;
+
+}
+
+.hero-action {
+
+    padding: 12px 17px;
+
+    border-radius: 15px;
+
+    background: rgba(0,0,0,.25);
+
+    border: 1px solid rgba(255,255,255,.2);
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+}
+
+.quick-row {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 9px;
+
+    margin-top: 14px;
+
+}
+
+.quick-row button {
+
+    min-width: 0;
+
+    padding: 13px 7px;
+
+    border-radius: 19px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    text-align: center;
+
+}
+
+.quick-row span {
+
+    display: block;
+
+    font-size: 23px;
+
+    margin-bottom: 5px;
+
+}
+
+.quick-row b,
+
+.quick-row small {
+
+    display: block;
+
+}
+
+.quick-row b {
+
+    font-size: 11px;
+
+}
+
+.quick-row small {
+
+    margin-top: 3px;
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+}
+
+.section-heading {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin: 24px 2px 11px;
+
+}
+
+.section-heading h2 {
+
+    margin: 0;
+
+    font-size: 18px;
+
+}
+
+.section-heading button {
+
+    background: none;
+
+    color: var(--purple);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+}
+
+.app-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 10px;
+
+}
+
+.app-tile {
+
+    min-height: 100px;
+
+    padding: 10px 5px;
+
+    border-radius: 20px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    transition: .18s ease;
+
+}
+
+.app-tile:hover,
+
+.quick-row button:hover,
+
+.game-card:hover {
+
+    transform: translateY(-2px);
+
+    border-color: rgba(118,92,255,.35);
+
+}
+
+.app-tile b {
+
+    font-size: 10px;
+
+}
+
+.app-icon {
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-style: normal;
+
+    font-size: 22px;
+
+}
+
+.app-icon.purple {
+
+    background: rgba(118,92,255,.2);
+
+}
+
+.app-icon.pink {
+
+    background: rgba(255,79,145,.2);
+
+}
+
+.app-icon.blue {
+
+    background: rgba(56,189,248,.2);
+
+}
+
+.app-icon.orange {
+
+    background: rgba(255,159,67,.2);
+
+}
+
+.app-icon.gray {
+
+    background: rgba(160,170,190,.18);
+
+}
+
+.app-icon.navy {
+
+    background: rgba(70,100,180,.2);
+
+}
+
+.app-icon.green {
+
+    background: rgba(57,217,138,.2);
+
+}
+
+.app-icon.slate {
+
+    background: rgba(130,140,160,.2);
+
+}
+
+.widget {
+
+    margin-top: 15px;
+
+    padding: 18px;
+
+    border-radius: 23px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+}
+
+.widget-head {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+.widget h2 {
+
+    margin: 0;
+
+    font-size: 16px;
+
+}
+
+.widget-head span {
+
+    font-size: 12px;
+
+}
+
+.widget > p {
+
+    margin: 12px 0;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+}
+
+.progress {
+
+    width: 100%;
+
+    height: 8px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,.08);
+
+}
+
+.progress span {
+
+    display: block;
+
+    height: 100%;
+
+    width: 0;
+
+    border-radius: inherit;
+
+    background: linear-gradient(90deg, var(--purple), var(--pink));
+
+    transition: width .3s ease;
+
+}
+
+.wide-button {
+
+    width: 100%;
+
+    margin-top: 14px;
+
+    padding: 12px;
+
+    border-radius: 14px;
+
+    background: var(--surface-3);
+
+    font-weight: 800;
+
+    font-size: 11px;
+
+}
+
+/* PAGE HEAD */
+
+.page-head {
+
+    display: grid;
+
+    grid-template-columns: 42px 1fr 40px;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 17px;
+
+}
+
+.page-head h2 {
+
+    margin: 0;
+
+    font-size: 24px;
+
+}
+
+.page-head > span {
+
+    text-align: right;
+
+    font-size: 25px;
+
+}
+
+.back {
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 14px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    font-size: 30px;
+
+    line-height: 1;
+
+}
+
+/* GAME CENTER */
+
+.game-stats {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 9px;
+
+    margin-bottom: 13px;
+
+}
+
+.game-stats div {
+
+    padding: 13px 5px;
+
+    text-align: center;
+
+    border-radius: 16px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    font-size: 11px;
+
+}
+
+.game-stats b {
+
+    margin-left: 3px;
+
+}
+
+.game-filters {
+
+    display: flex;
+
+    gap: 7px;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+
+    margin-bottom: 14px;
+
+}
+
+.game-filters::-webkit-scrollbar {
+
+    display: none;
+
+}
+
+.filter {
+
+    padding: 8px 13px;
+
+    border-radius: 20px;
+
+    white-space: nowrap;
+
+    background: var(--surface);
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+}
+
+.filter.active {
+
+    background: var(--purple);
+
+    color: white;
+
+}
+
+.game-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+}
+
+.game-card {
+
+    min-height: 88px;
+
+    padding: 12px;
+
+    display: grid;
+
+    grid-template-columns: 48px 1fr auto;
+
+    gap: 10px;
+
+    align-items: center;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 20px;
+
+    transition: .18s ease;
+
+}
+
+.game-icon {
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 15px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: linear-gradient(135deg, rgba(118,92,255,.2), rgba(255,79,145,.15));
+
+    font-size: 23px;
+
+}
+
+.game-info {
+
+    min-width: 0;
+
+}
+
+.game-info h3 {
+
+    margin: 0;
+
+    font-size: 13px;
+
+}
+
+.game-info p {
+
+    margin: 3px 0;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+}
+
+.best {
+
+    color: var(--purple);
+
+    font-size: 8px;
+
+    font-weight: 900;
+
+}
+
+.play {
+
+    padding: 9px 10px;
+
+    border-radius: 11px;
+
+    background: var(--purple);
+
+    color: white;
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+}
+
+/* GAME STAGE */
+
+.game-stage {
+
+    min-height: 450px;
+
+    padding: 16px;
+
+    border-radius: 25px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+}
+
+.game-score {
+
+    width: 100%;
+
+    padding: 10px 13px;
+
+    border-radius: 14px;
+
+    background: var(--surface-2);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    text-align: center;
+
+}
+
+.game-score span {
+
+    color: var(--purple);
+
+}
+
+.game-message {
+
+    width: 100%;
+
+    color: var(--muted);
+
+    text-align: center;
+
+    font-size: 11px;
+
+}
+
+.game-button {
+
+    width: 100%;
+
+    max-width: 280px;
+
+    margin: 8px auto;
+
+    padding: 12px;
+
+    border-radius: 14px;
+
+    background: var(--purple);
+
+    color: white;
+
+    font-weight: 800;
+
+}
+
+.game-secondary {
+
+    background: var(--surface-3);
+
+}
+
+.big-click {
+
+    width: 150px;
+
+    height: 150px;
+
+    margin: 25px auto;
+
+    border-radius: 50%;
+
+    background: radial-gradient(circle at 35% 25%, #9d8cff, #5942d7);
+
+    box-shadow:
+
+        0 20px 45px rgba(118,92,255,.35),
+
+        inset 0 5px 10px rgba(255,255,255,.18);
+
+    font-size: 55px;
+
+}
+
+.number-input {
+
+    width: 100%;
+
+    max-width: 280px;
+
+    padding: 13px;
+
+    margin: 8px 0;
+
+    border-radius: 14px;
+
+    border: 1px solid var(--border);
+
+    background: var(--surface-2);
+
+    color: var(--text);
+
+    outline: none;
+
+}
+
+.game-canvas {
+
+    display: block;
+
+    max-width: 100%;
+
+    height: auto;
+
+    margin: 15px auto;
+
+    border-radius: 18px;
+
+    background: #080c14;
+
+    border: 1px solid var(--border);
+
+}
+
+.controls {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin: 10px;
+
+}
+
+.controls button {
+
+    width: 48px;
+
+    height: 43px;
+
+    border-radius: 14px;
+
+    background: var(--surface-3);
+
+    font-size: 19px;
+
+}
+
+/* MEMORY */
+
+.memory-grid {
+
+    width: 100%;
+
+    max-width: 300px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 7px;
+
+    margin: 15px auto;
+
+}
+
+.memory-card {
+
+    aspect-ratio: 1;
+
+    border-radius: 13px;
+
+    background: linear-gradient(135deg, #252b3d, #171b27);
+
+    border: 1px solid var(--border);
+
+    color: white;
+
+    font-size: 22px;
+
+    font-weight: 900;
+
+}
+
+.memory-card.revealed {
+
+    background: linear-gradient(135deg, #765cff, #4e3ec0);
+
+}
+
+/* TARGET */
+
+.target-area {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 410px;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background:
+
+        radial-gradient(circle, rgba(118,92,255,.1) 1px, transparent 1px);
+
+    background-size: 18px 18px;
+
+}
+
+.target {
+
+    position: absolute;
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(circle, white 0 15%, #ff5575 16% 55%, #7d2139 56%);
+
+    box-shadow: 0 0 20px rgba(255,85,117,.3);
+
+}
+
+/* REACTION */
+
+.reaction-box {
+
+    width: 100%;
+
+    min-height: 250px;
+
+    border-radius: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #252b3a;
+
+    font-size: 20px;
+
+    font-weight: 900;
+
+    user-select: none;
+
+}
+
+.reaction-box.wait {
+
+    background: #b33b55;
+
+}
+
+.reaction-box.ready {
+
+    background: #28c878;
+
+}
+
+/* STACK */
+
+.stack-area {
+
+    position: relative;
+
+    width: 300px;
+
+    max-width: 100%;
+
+    height: 400px;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background:
+
+        linear-gradient(
+
+            to top,
+
+            rgba(118,92,255,.14),
+
+            transparent
+
+        );
+
+}
+
+.stack-block {
+
+    position: absolute;
+
+    height: 25px;
+
+    border-radius: 7px;
+
+    background: linear-gradient(90deg, #765cff, #ff4f91);
+
+}
+
+/* 2048 */
+
+.grid2048 {
+
+    width: 300px;
+
+    max-width: 100%;
+
+    aspect-ratio: 1;
+
+    padding: 7px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 7px;
+
+    border-radius: 18px;
+
+    background: #242a3a;
+
+    margin: 20px auto;
+
+}
+
+.tile2048 {
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #363d50;
+
+    font-size: 22px;
+
+    font-weight: 900;
+
+}
+
+/* WEATHER */
+
+.weather-card {
+
+    min-height: 180px;
+
+    padding: 25px;
+
+    border-radius: 28px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    background:
+
+        linear-gradient(135deg, #2766a5, #5b45bd);
+
+    box-shadow: 0 20px 50px rgba(50,90,200,.25);
+
+}
+
+.weather-card p {
+
+    margin: 0;
+
+    opacity: .75;
+
+}
+
+.weather-card strong {
+
+    display: block;
+
+    margin: 8px 0;
+
+    font-size: 55px;
+
+}
+
+.weather-card b,
+
+.weather-card small {
+
+    display: block;
+
+}
+
+.weather-card small {
+
+    margin-top: 5px;
+
+    opacity: .7;
+
+}
+
+.weather-symbol {
+
+    font-size: 65px;
+
+}
+
+.weather-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 9px;
+
+    margin-top: 12px;
+
+}
+
+.weather-grid div {
+
+    padding: 16px;
+
+    border-radius: 19px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+}
+
+.weather-grid b,
+
+.weather-grid small {
+
+    display: block;
+
+    margin-top: 5px;
+
+}
+
+.weather-grid small {
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+}
+
+.subheading {
+
+    margin: 23px 2px 10px;
+
+    font-size: 16px;
+
+}
+
+.forecast {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+.forecast div {
+
+    display: grid;
+
+    grid-template-columns: 1fr 45px 45px;
+
+    align-items: center;
+
+    padding: 13px 15px;
+
+    border-radius: 16px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    font-size: 11px;
+
+}
+
+.forecast span {
+
+    text-align: center;
+
+    font-size: 20px;
+
+}
+
+.demo-note {
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+}
+
+/* SLOTIFY */
+
+.slotify-screen {
+
+    padding-left: 13px;
+
+    padding-right: 13px;
+
+}
+
+.slotify-top {
+
+    display: grid;
+
+    grid-template-columns: 42px 1fr 42px;
+
+    align-items: center;
+
+    gap: 7px;
+
+}
+
+.slotify-back {
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 14px;
+
+    background: var(--surface);
+
+    font-size: 30px;
+
+}
+
+.slotify-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+}
+
+.slotify-logo {
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 13px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    background: linear-gradient(135deg, #765cff, #ff4f91);
+
+    font-size: 23px;
+
+    font-weight: 900;
+
+}
+
+.slotify-brand h2 {
+
+    margin: 0;
+
+    font-size: 19px;
+
+}
+
+.slotify-brand small {
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+}
+
+.slotify-menu-button {
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 14px;
+
+    background: var(--surface);
+
+    font-size: 15px;
+
+}
+
+.slotify-search {
+
+    margin-top: 14px;
+
+    height: 45px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 0 12px;
+
+    border-radius: 15px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+}
+
+.slotify-search input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    border: 0;
+
+    outline: 0;
+
+    background: transparent;
+
+    color: white;
+
+}
+
+.slotify-search input::placeholder {
+
+    color: var(--muted);
+
+}
+
+.slotify-search button {
+
+    background: none;
+
+    color: var(--muted);
+
+    font-size: 20px;
+
+}
+
+.music-filter-row {
+
+    display: flex;
+
+    gap: 7px;
+
+    margin: 11px 0;
+
+}
+
+.music-filter {
+
+    padding: 8px 13px;
+
+    border-radius: 20px;
+
+    background: var(--surface);
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+}
+
+.music-filter.active {
+
+    color: white;
+
+    background: var(--purple);
+
+}
+
+.now-playing-card {
+
+    padding: 15px;
+
+    border-radius: 25px;
+
+    background:
+
+        linear-gradient(
+
+            145deg,
+
+            rgba(118,92,255,.16),
+
+            var(--surface)
+
+        );
+
+    border: 1px solid var(--border);
+
+}
+
+.album-art-large {
+
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 1;
+
+    max-height: 330px;
+
+    overflow: hidden;
+
+    border-radius: 21px;
+
+    background: linear-gradient(135deg, #765cff, #ff4f91);
+
+}
+
+.album-art-large img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform .5s ease;
+
+}
+
+.album-art-large img.playing {
+
+    transform: scale(1.035);
+
+}
+
+.album-shine {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(
+
+            125deg,
+
+            rgba(255,255,255,.22),
+
+            transparent 30%,
+
+            transparent 70%,
+
+            rgba(255,255,255,.08)
+
+        );
+
+}
+
+.playing-bars {
+
+    position: absolute;
+
+    right: 14px;
+
+    bottom: 14px;
+
+    display: flex;
+
+    align-items: end;
+
+    gap: 3px;
+
+    height: 22px;
+
+    opacity: 0;
+
+}
+
+.playing-bars.active {
+
+    opacity: 1;
+
+}
+
+.playing-bars span {
+
+    width: 4px;
+
+    height: 8px;
+
+    border-radius: 5px;
+
+    background: white;
+
+}
+
+.playing-bars.active span {
+
+    animation: musicBars .7s infinite alternate ease-in-out;
+
+}
+
+.playing-bars span:nth-child(2) {
+
+    animation-delay: -.3s;
+
+}
+
+.playing-bars span:nth-child(3) {
+
+    animation-delay: -.5s;
+
+}
+
+.playing-bars span:nth-child(4) {
+
+    animation-delay: -.15s;
+
+}
+
+@keyframes musicBars {
+
+    from {
+
+        height: 5px;
+
+    }
+
+    to {
+
+        height: 22px;
+
+    }
+
+}
+
+.music-info-row {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 15px;
+
+}
+
+.music-info {
+
+    min-width: 0;
+
+    flex: 1;
+
+}
+
+.music-info h1 {
+
+    margin: 0;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    font-size: 20px;
+
+}
+
+.music-info p {
+
+    margin: 4px 0 0;
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+}
+
+.favorite-button {
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: var(--surface-2);
+
+    font-size: 23px;
+
+}
+
+.favorite-button.active {
+
+    color: var(--pink);
+
+}
+
+.music-progress-area {
+
+    margin-top: 14px;
+
+}
+
+.music-progress-area input {
+
+    width: 100%;
+
+    accent-color: var(--purple);
+
+}
+
+.music-time {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+}
+
+.music-controls {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 12px;
+
+}
+
+.music-controls button {
+
+    width: 37px;
+
+    height: 37px;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    font-size: 15px;
+
+}
+
+.music-controls button.active {
+
+    color: var(--purple);
+
+    background: rgba(118,92,255,.12);
+
+}
+
+.music-controls .play-button {
+
+    width: 55px;
+
+    height: 55px;
+
+    background: white;
+
+    color: #080910;
+
+    font-size: 18px;
+
+}
+
+.music-volume {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 10px;
+
+}
+
+.music-volume input {
+
+    flex: 1;
+
+    accent-color: var(--purple);
+
+}
+
+.music-status {
+
+    margin: 9px 0 0;
+
+    color: var(--muted);
+
+    text-align: center;
+
+    font-size: 9px;
+
+}
+
+.playlist-title-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin: 20px 3px 10px;
+
+}
+
+.playlist-title-row h3 {
+
+    margin: 0;
+
+    font-size: 16px;
+
+}
+
+.playlist-title-row small {
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+}
+
+.playlist-action {
+
+    padding: 9px 11px;
+
+    border-radius: 12px;
+
+    background: var(--surface-2);
+
+    color: var(--purple);
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+}
+
+.improved-playlist {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+}
+
+.playlist-song {
+
+    width: 100%;
+
+    min-height: 65px;
+
+    padding: 7px;
+
+    display: grid;
+
+    grid-template-columns: 20px 48px 1fr auto;
+
+    gap: 9px;
+
+    align-items: center;
+
+    text-align: left;
+
+    border-radius: 17px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+}
+
+.playlist-song.active {
+
+    background: rgba(118,92,255,.14);
+
+    border-color: rgba(118,92,255,.4);
+
+}
+
+.playlist-number {
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    text-align: center;
+
+}
+
+.playlist-image {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 11px;
+
+    object-fit: cover;
+
+    background: linear-gradient(135deg, #765cff, #ff4f91);
+
+}
+
+.playlist-song-info {
+
+    min-width: 0;
+
+}
+
+.playlist-song-info b,
+
+.playlist-song-info small {
+
+    display: block;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+}
+
+.playlist-song-info b {
+
+    font-size: 11px;
+
+}
+
+.playlist-song-info small {
+
+    margin-top: 3px;
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+}
+
+.playlist-heart {
+
+    color: var(--pink);
+
+}
+
+.playlist-play {
+
+    font-size: 11px;
+
+}
+
+.music-empty {
+
+    padding: 30px 15px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    background: var(--surface);
+
+}
+
+.music-empty div {
+
+    font-size: 35px;
+
+}
+
+.music-empty h3 {
+
+    margin: 10px 0 4px;
+
+}
+
+.music-empty p {
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+}
+
+.music-menu {
+
+    position: absolute;
+
+    right: 20px;
+
+    top: 118px;
+
+    z-index: 20;
+
+    width: 200px;
+
+    padding: 7px;
+
+    border-radius: 16px;
+
+    background: #202534;
+
+    border: 1px solid var(--border);
+
+    box-shadow: var(--shadow);
+
+}
+
+.music-menu button {
+
+    width: 100%;
+
+    padding: 11px;
+
+    background: transparent;
+
+    text-align: left;
+
+    border-radius: 10px;
+
+    font-size: 10px;
+
+}
+
+.music-menu button:hover {
+
+    background: rgba(255,255,255,.06);
+
+}
+
+.hidden {
+
+    display: none !important;
+
+}
+
+/* NOTES */
+
+.note-toolbar {
+
+    display: flex;
+
+    gap: 7px;
+
+    margin-bottom: 10px;
+
+}
+
+.note-toolbar button {
+
+    padding: 9px 12px;
+
+    border-radius: 12px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+}
+
+#notes-input {
+
+    width: 100%;
+
+    height: 400px;
+
+    resize: none;
+
+    padding: 16px;
+
+    border-radius: 20px;
+
+    border: 1px solid var(--border);
+
+    outline: none;
+
+    background: var(--surface);
+
+    color: var(--text);
+
+}
+
+#notes-input:focus {
+
+    border-color: rgba(118,92,255,.5);
+
+}
+
+.save-line {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 8px;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+}
+
+/* CALCULATOR */
+
+.calculator {
+
+    padding: 14px;
+
+    border-radius: 27px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+}
+
+#calc-display {
+
+    width: 100%;
+
+    height: 80px;
+
+    padding: 10px;
+
+    border: 0;
+
+    outline: none;
+
+    background: transparent;
+
+    color: white;
+
+    text-align: right;
+
+    font-size: 37px;
+
+    font-weight: 300;
+
+}
+
+.calc-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 8px;
+
+}
+
+.calc-grid button {
+
+    height: 55px;
+
+    border-radius: 16px;
+
+    background: var(--surface-2);
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+}
+
+.calc-grid button.op {
+
+    background: rgba(118,92,255,.22);
+
+    color: #b6aaff;
+
+}
+
+.calc-grid button.equals {
+
+    background: var(--purple);
+
+}
+
+.calc-grid button.zero {
+
+    grid-column: span 2;
+
+}
+
+/* CLOCK */
+
+.clock-face {
+
+    padding: 35px 15px;
+
+    text-align: center;
+
+    border-radius: 28px;
+
+    background:
+
+        radial-gradient(circle at 50% 0%, rgba(118,92,255,.3), transparent 60%),
+
+        var(--surface);
+
+    border: 1px solid var(--border);
+
+}
+
+.clock-face strong {
+
+    display: block;
+
+    font-size: 42px;
+
+    letter-spacing: -2px;
+
+}
+
+.clock-face span {
+
+    color: var(--muted);
+
+    font-size: 10px;
+
+}
+
+.timer {
+
+    margin-top: 13px;
+
+    padding: 22px;
+
+    border-radius: 24px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    text-align: center;
+
+}
+
+.timer h3 {
+
+    margin: 0 0 10px;
+
+}
+
+.timer > strong {
+
+    display: block;
+
+    font-size: 45px;
+
+}
+
+.timer-presets {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    margin: 16px 0;
+
+}
+
+.timer-presets button,
+
+.timer-actions button {
+
+    padding: 9px 11px;
+
+    border-radius: 12px;
+
+    background: var(--surface-3);
+
+    font-size: 10px;
+
+}
+
+.timer-actions {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 7px;
+
+}
+
+/* STORE */
+
+.store-balance {
+
+    padding: 17px;
+
+    border-radius: 20px;
+
+    background: linear-gradient(135deg, rgba(118,92,255,.18), rgba(255,79,145,.1));
+
+    border: 1px solid var(--border);
+
+    text-align: center;
+
+}
+
+#store-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+
+    margin-top: 12px;
+
+}
+
+.store-item {
+
+    min-height: 80px;
+
+    padding: 11px;
+
+    display: grid;
+
+    grid-template-columns: 45px 1fr auto;
+
+    gap: 10px;
+
+    align-items: center;
+
+    border-radius: 19px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+}
+
+.store-icon {
+
+    width: 43px;
+
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: var(--surface-3);
+
+    font-size: 21px;
+
+}
+
+.store-info {
+
+    min-width: 0;
+
+}
+
+.store-info b {
+
+    font-size: 11px;
+
+}
+
+.store-info p {
+
+    margin: 4px 0 0;
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+}
+
+.store-item .buy {
+
+    padding: 9px;
+
+    border-radius: 11px;
+
+    background: var(--purple);
+
+    font-size: 8px;
+
+    font-weight: 900;
+
+}
+
+.store-item .buy:disabled {
+
+    opacity: .6;
+
+}
+
+/* PROFILE */
+
+.profile-card {
+
+    padding: 25px 18px;
+
+    text-align: center;
+
+    border-radius: 27px;
+
+    background:
+
+        radial-gradient(circle at 50% 0%, rgba(118,92,255,.2), transparent 55%),
+
+        var(--surface);
+
+    border: 1px solid var(--border);
+
+}
+
+.avatar {
+
+    width: 76px;
+
+    height: 76px;
+
+    margin: 0 auto 12px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    background: linear-gradient(135deg, #765cff, #ff4f91);
+
+    font-size: 35px;
+
+}
+
+.profile-card h2 {
+
+    margin: 5px 0;
+
+    font-size: 19px;
+
+}
+
+.profile-card > p {
+
+    color: var(--purple);
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+}
+
+.profile-level {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 20px;
+
+    font-size: 10px;
+
+}
+
+.profile-level span {
+
+    color: var(--muted);
+
+}
+
+.achievement-title {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin: 22px 2px 10px;
+
+}
+
+.achievement-title h3 {
+
+    margin: 0;
+
+    font-size: 16px;
+
+}
+
+.achievement-title span {
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+}
+
+.achievements {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 8px;
+
+}
+
+.achievement {
+
+    padding: 13px;
+
+    border-radius: 17px;
+
+    background: var(--surface);
+
+    border: 1px solid rgba(118,92,255,.25);
+
+}
+
+.achievement.locked {
+
+    opacity: .42;
+
+}
+
+.achievement span,
+
+.achievement b,
+
+.achievement small {
+
+    display: block;
+
+}
+
+.achievement span {
+
+    font-size: 25px;
+
+}
+
+.achievement b {
+
+    margin-top: 6px;
+
+    font-size: 10px;
+
+}
+
+.achievement small {
+
+    margin-top: 4px;
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+}
+
+/* SETTINGS */
+
+.settings-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-bottom: 10px;
+
+}
+
+.setting {
+
+    min-height: 70px;
+
+    padding: 13px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    border-radius: 18px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+}
+
+.setting b,
+
+.setting small {
+
+    display: block;
+
+}
+
+.setting b {
+
+    font-size: 11px;
+
+}
+
+.setting small {
+
+    margin-top: 4px;
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+}
+
+.setting button {
+
+    min-width: 55px;
+
+    padding: 8px;
+
+    border-radius: 11px;
+
+    background: var(--surface-3);
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+}
+
+.setting button.on {
+
+    background: var(--green);
+
+    color: #06140d;
+
+}
+
+.danger {
+
+    width: 100%;
+
+    padding: 13px;
+
+    border-radius: 15px;
+
+    background: rgba(255,85,117,.12);
+
+    color: var(--danger);
+
+    font-weight: 800;
+
+    font-size: 10px;
+
+}
+
+.about {
+
+    margin-top: 18px;
+
+    padding: 18px;
+
+    text-align: center;
+
+    border-radius: 20px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+}
+
+.about b {
+
+    font-size: 13px;
+
+}
+
+.about p {
+
+    margin: 7px 0;
+
+    color: var(--muted);
+
+    font-size: 9px;
+
+}
+
+/* DOCK */
+
+.dock {
+
+    position: absolute;
+
+    left: 10px;
+
+    right: 10px;
+
+    bottom: 10px;
+
+    height: 67px;
+
+    padding: 7px;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 4px;
+
+    z-index: 80;
+
+    border-radius: 23px;
+
+    background: rgba(20,23,32,.94);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    box-shadow: 0 15px 40px rgba(0,0,0,.35);
+
+    backdrop-filter: blur(20px);
+
+}
+
+.dock button {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 3px;
+
+    border-radius: 17px;
+
+    background: transparent;
+
+    color: var(--muted);
+
+}
+
+.dock button:hover {
+
+    background: rgba(255,255,255,.06);
+
+    color: white;
+
+}
+
+.dock span {
+
+    font-size: 18px;
+
+}
+
+.dock small {
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+}
+
+/* TOAST */
+
+#toast {
+
+    position: fixed;
+
+    left: 50%;
+
+    bottom: 25px;
+
+    z-index: 500;
+
+    transform: translate(-50%, 20px);
+
+    padding: 11px 17px;
+
+    border-radius: 15px;
+
+    background: #252a38;
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    box-shadow: var(--shadow);
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: .2s ease;
+
+}
+
+#toast.toast-show {
+
+    opacity: 1;
+
+    transform: translate(-50%, 0);
+
+}
+
+/* LIGHT MODE */
+
+body.light {
+
+    --bg: #f4f6fb;
+
+    --surface: #ffffff;
+
+    --surface-2: #edf0f7;
+
+    --surface-3: #e1e5ef;
+
+    --text: #151822;
+
+    --muted: #697185;
+
+    --border: rgba(20,25,40,.1);
+
+}
+
+body.light .screen {
+
+    background: var(--bg);
+
+}
+
+body.light .dock {
+
+    background: rgba(255,255,255,.93);
+
+}
+
+body.light #calc-display,
+
+body.light .slotify-search input,
+
+body.light #notes-input {
+
+    color: var(--text);
+
+}
+
+/* NEON */
+
+body.neon .phone {
+
+    box-shadow:
+
+        0 0 35px rgba(118,92,255,.35),
+
+        0 40px 100px rgba(0,0,0,.6);
+
+}
+
+body.neon .app-icon,
+
+body.neon .slotify-logo,
+
+body.neon .version-badge {
+
+    box-shadow:
+
+        0 0 18px rgba(118,92,255,.3);
+
+}
+
+body.neon .hero-card {
+
+    box-shadow:
+
+        0 0 30px rgba(118,92,255,.3);
+
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 500px) {
+
+    body {
+
+        padding: 0;
+
+        align-items: stretch;
+
+    }
+
+    .phone-shell {
+
+        width: 100%;
+
+        height: 100vh;
+
+    }
+
+    .phone {
+
+        width: 100%;
+
+        height: 100vh;
+
+        min-height: 0;
+
+        border: 0;
+
+        border-radius: 0;
+
+    }
+
+    .dynamic-island {
+
+        top: 8px;
+
+    }
+
+    #toast {
+
+        bottom: 85px;
+
+    }
+
+}
+
+@media (max-height: 700px) {
+
+    .phone {
+
+        height: 100vh;
+
+    }
+
+    .app-tile {
+
+        min-height: 82px;
+
+    }
+
+    .hero-card {
+
+        min-height: 125px;
+
+    }
+
+    .album-art-large {
+
+        max-height: 260px;
+
+    }
+
+}
+
+/* =========================================================
+
+   PREMIUM SLOTIFY ALBUM ART
+
+   ========================================================= */
+
+.album-art-large {
+
+    width: 270px;
+
+    height: 270px;
+
+    margin: 10px auto 24px;
+
+    position: relative;
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    background: #15151d;
+
+    box-shadow:
+
+        0 25px 50px rgba(0, 0, 0, 0.45),
+
+        0 0 35px rgba(255, 80, 180, 0.12);
+
+}
+
+.album-art-large img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+
+        transform 0.5s ease,
+
+        filter 0.5s ease;
+
+}
+
+.album-art-large:hover img {
+
+    transform: scale(1.05);
+
+    filter: brightness(1.08);
+
+}
+
+.album-shine {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            rgba(255,255,255,0.20),
+
+            transparent 35%,
+
+            transparent 65%,
+
+            rgba(255,255,255,0.05)
+
+        );
+
+}
+
+.album-art-large::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 24px;
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    pointer-events: none;
+
+}
+
+/* Rotating album art while music is playing */
+
+.album-art-large.playing img {
+
+    animation: albumPulse 4s ease-in-out infinite;
+
+}
+
+@keyframes albumPulse {
+
+    0%, 100% {
+
+        transform: scale(1);
+
+    }
+
+    50% {
+
+        transform: scale(1.025);
+
+    }
+
+}
+
+/* Playing bars */
+
+.playing-bars {
+
+    position: absolute;
+
+    left: 18px;
+
+    bottom: 18px;
+
+    height: 32px;
+
+    width: 45px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    gap: 4px;
+
+    padding: 7px;
+
+    border-radius: 12px;
+
+    background: rgba(0,0,0,0.60);
+
+    backdrop-filter: blur(10px);
+
+}
+
+.playing-bars span {
+
+    width: 4px;
+
+    height: 10px;
+
+    border-radius: 5px;
+
+    background: white;
+
+}
+
+.playing-bars span:nth-child(1) {
+
+    height: 13px;
+
+}
+
+.playing-bars span:nth-child(2) {
+
+    height: 22px;
+
+}
+
+.playing-bars span:nth-child(3) {
+
+    height: 16px;
+
+}
+
+.playing-bars span:nth-child(4) {
+
+    height: 25px;
+
+}
+
+.playing-bars.active span {
+
+    animation: musicBars 0.8s ease-in-out infinite alternate;
+
+}
+
+.playing-bars.active span:nth-child(2) {
+
+    animation-delay: 0.15s;
+
+}
+
+.playing-bars.active span:nth-child(3) {
+
+    animation-delay: 0.3s;
+
+}
+
+.playing-bars.active span:nth-child(4) {
+
+    animation-delay: 0.45s;
+
+}
+
+@keyframes musicBars {
+
+    from {
+
+        transform: scaleY(0.35);
+
+    }
+
+    to {
+
+        transform: scaleY(1);
+
+    }
+
+}
+
+/* =========================================================
+
+   SLOTIFY SONG INFO
+
+   ========================================================= */
+
+.music-info-row {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-top: 8px;
+
+}
+
+.music-info {
+
+    min-width: 0;
+
+    flex: 1;
+
+}
+
+.music-info h1 {
+
+    margin: 0;
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+}
+
+.music-info p {
+
+    margin: 6px 0 0;
+
+    opacity: 0.6;
+
+    font-size: 14px;
+
+}
+
+.favorite-button {
+
+    width: 45px;
+
+    height: 45px;
+
+    flex-shrink: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    font-size: 23px;
+
+    cursor: pointer;
+
+    transition:
+
+        transform 0.2s ease,
+
+        background 0.2s ease;
+
+}
+
+.favorite-button:hover {
+
+    transform: scale(1.1);
+
+}
+
+.favorite-button.active {
+
+    background: rgba(255,70,150,0.20);
+
+}
+
+/* =========================================================
+
+   PREMIUM MUSIC PROGRESS
+
+   ========================================================= */
+
+.music-progress-area {
+
+    margin-top: 25px;
+
+}
+
+#music-seek {
+
+    width: 100%;
+
+    height: 5px;
+
+    appearance: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    background: rgba(255,255,255,0.16);
+
+}
+
+#music-seek::-webkit-slider-thumb {
+
+    appearance: none;
+
+    width: 14px;
+
+    height: 14px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    cursor: pointer;
+
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+
+}
+
+.music-time {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 7px;
+
+    font-size: 11px;
+
+    opacity: 0.55;
+
+}
+
+/* =========================================================
+
+   MUSIC CONTROLS
+
+   ========================================================= */
+
+.music-controls {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    margin-top: 18px;
+
+}
+
+.music-controls button {
+
+    width: 42px;
+
+    height: 42px;
+
+    border: none;
+
+    background: transparent;
+
+    color: inherit;
+
+    font-size: 19px;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition:
+
+        transform 0.2s ease,
+
+        background 0.2s ease;
+
+}
+
+.music-controls button:hover {
+
+    transform: scale(1.12);
+
+    background: rgba(255,255,255,0.08);
+
+}
+
+.music-controls .play-button {
+
+    width: 64px;
+
+    height: 64px;
+
+    background: white;
+
+    color: #111;
+
+    font-size: 24px;
+
+    box-shadow:
+
+        0 8px 25px rgba(0,0,0,0.3);
+
+}
+
+.music-controls .play-button:hover {
+
+    transform: scale(1.08);
+
+}
+
+/* =========================================================
+
+   PREMIUM PLAYLIST
+
+   ========================================================= */
+
+.improved-playlist {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+.music-track {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 10px;
+
+    border-radius: 16px;
+
+    background: rgba(255,255,255,0.055);
+
+    cursor: pointer;
+
+    transition:
+
+        background 0.2s ease,
+
+        transform 0.2s ease;
+
+}
+
+.music-track:hover {
+
+    background: rgba(255,255,255,0.10);
+
+    transform: translateX(3px);
+
+}
+
+.music-track.active {
+
+    background: rgba(255,255,255,0.12);
+
+}
+
+.music-track img {
+
+    width: 52px;
+
+    height: 52px;
+
+    border-radius: 11px;
+
+    object-fit: cover;
+
+    flex-shrink: 0;
+
+}
+
+.music-track-info {
+
+    flex: 1;
+
+    min-width: 0;
+
+}
+
+.music-track-info b {
+
+    display: block;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+}
+
+.music-track-info small {
+
+    display: block;
+
+    margin-top: 4px;
+
+    opacity: 0.55;
+
+}
+
+.music-track-number {
+
+    width: 22px;
+
+    text-align: center;
+
+    opacity: 0.45;
+
+}
+
+.music-track-favorite {
+
+    border: none;
+
+    background: transparent;
+
+    color: inherit;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+}
+
+/* =========================================================
+
+   SLOT PHONE X — REAL PHONE UI UPGRADE
+
+   ========================================================= */
+
+.phone-shell {
+
+    perspective: 1200px;
+
+}
+
+.phone {
+
+    width: min(402px, 94vw);
+
+    height: min(860px, 94vh);
+
+    min-height: 0;
+
+    border: 5px solid #0c0d11;
+
+    border-radius: 42px;
+
+    background: #050609;
+
+    box-shadow:
+
+        0 35px 90px rgba(0,0,0,.65),
+
+        0 8px 24px rgba(0,0,0,.4),
+
+        inset 0 0 0 1px rgba(255,255,255,.12);
+
+}
+
+.phone::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 38px;
+
+    pointer-events: none;
+
+    z-index: 120;
+
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.08);
+
+}
+
+.dynamic-island {
+
+    width: 116px;
+
+    height: 30px;
+
+    top: 10px;
+
+    border-radius: 18px;
+
+    background: #030305;
+
+    box-shadow:
+
+        inset 0 1px 2px rgba(255,255,255,.08),
+
+        0 1px 4px rgba(0,0,0,.8);
+
+}
+
+.island-camera {
+
+    position: absolute;
+
+    right: 13px;
+
+    top: 10px;
+
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #151820;
+
+    box-shadow: inset 0 0 0 2px #08090c;
+
+}
+
+.phone-side-button {
+
+    position: absolute;
+
+    left: -7px;
+
+    width: 3px;
+
+    background: #17191f;
+
+    border-radius: 3px 0 0 3px;
+
+    z-index: 130;
+
+}
+
+.side-power {
+
+    right: -7px;
+
+    left: auto;
+
+    top: 170px;
+
+    height: 86px;
+
+    border-radius: 0 3px 3px 0;
+
+}
+
+.side-volume-up {
+
+    top: 150px;
+
+    height: 45px;
+
+}
+
+.side-volume-down {
+
+    top: 205px;
+
+    height: 45px;
+
+}
+
+.screen {
+
+    border-radius: 37px;
+
+    background:
+
+        radial-gradient(circle at 18% 0%, rgba(118,92,255,.20), transparent 28%),
+
+        radial-gradient(circle at 90% 65%, rgba(56,189,248,.09), transparent 30%),
+
+        var(--bg);
+
+}
+
+.status-bar {
+
+    height: 48px;
+
+    padding: 12px 20px 0;
+
+    font-size: 12px;
+
+    letter-spacing: -.1px;
+
+}
+
+.status-right {
+
+    font-size: 11px;
+
+}
+
+/* A more normal phone home screen */
+
+#home {
+
+    padding: 58px 17px 105px;
+
+    background:
+
+        radial-gradient(circle at 80% 8%, rgba(118,92,255,.24), transparent 32%),
+
+        radial-gradient(circle at 10% 58%, rgba(255,79,145,.12), transparent 34%),
+
+        linear-gradient(180deg, rgba(5,7,14,.05), rgba(5,7,14,.28));
+
+}
+
+#home::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    opacity: .28;
+
+    background-image:
+
+        radial-gradient(circle at 20% 20%, white 0 1px, transparent 1.5px),
+
+        radial-gradient(circle at 70% 40%, white 0 1px, transparent 1.5px),
+
+        radial-gradient(circle at 40% 75%, white 0 1px, transparent 1.5px);
+
+    background-size: 90px 90px, 130px 130px, 170px 170px;
+
+}
+
+.home-top {
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+.home-top h1 {
+
+    font-size: 27px;
+
+    letter-spacing: -.8px;
+
+}
+
+.eyebrow {
+
+    font-size: 9px;
+
+    letter-spacing: 1.2px;
+
+}
+
+.profile-button {
+
+    width: 43px;
+
+    height: 43px;
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,.10);
+
+    backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(255,255,255,.13);
+
+}
+
+.hero-card {
+
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 118px;
+
+    margin-top: 20px;
+
+    border-radius: 25px;
+
+    background:
+
+        linear-gradient(135deg, rgba(118,92,255,.88), rgba(64,84,220,.82) 55%, rgba(255,79,145,.72));
+
+    border: 1px solid rgba(255,255,255,.16);
+
+    box-shadow: 0 18px 38px rgba(0,0,0,.25);
+
+}
+
+.hero-card::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+
+    height: 150px;
+
+    right: -50px;
+
+    top: -55px;
+
+    border-radius: 50%;
+
+    border: 25px solid rgba(255,255,255,.10);
+
+}
+
+.quick-row button,
+
+.app-tile,
+
+.widget,
+
+.game-card,
+
+.settings-list,
+
+.card,
+
+.calc,
+
+.notes-card {
+
+    backdrop-filter: blur(16px);
+
+}
+
+.app-grid {
+
+    gap: 10px;
+
+}
+
+.app-tile {
+
+    min-height: 76px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,.075);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+}
+
+.app-icon {
+
+    width: 44px;
+
+    height: 44px;
+
+    border-radius: 13px;
+
+    box-shadow: 0 8px 18px rgba(0,0,0,.20);
+
+}
+
+.dock {
+
+    left: 12px;
+
+    right: 12px;
+
+    bottom: 13px;
+
+    height: 64px;
+
+    border-radius: 22px;
+
+    background: rgba(20,22,29,.78);
+
+    border: 1px solid rgba(255,255,255,.10);
+
+    box-shadow: 0 15px 40px rgba(0,0,0,.35);
+
+    backdrop-filter: blur(24px) saturate(140%);
+
+}
+
+.dock button {
+
+    border-radius: 16px;
+
+}
+
+.home-indicator {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 5px;
+
+    width: 112px;
+
+    height: 4px;
+
+    transform: translateX(-50%);
+
+    border-radius: 99px;
+
+    background: rgba(255,255,255,.82);
+
+    z-index: 150;
+
+    pointer-events: none;
+
+}
+
+/* =========================================================
+
+   SLOTIFY — VINYL RECORD BEHIND THE LOGO
+
+   ========================================================= */
+
+.slotify-brand {
+
+    position: relative;
+
+}
+
+.slotify-logo {
+
+    position: relative;
+
+    isolation: isolate;
+
+    z-index: 1;
+
+    width: 43px;
+
+    height: 43px;
+
+    overflow: visible;
+
+    background: linear-gradient(135deg, #765cff, #ff4f91);
+
+    box-shadow: 0 7px 18px rgba(118,92,255,.30);
+
+}
+
+.slotify-logo::before {
+
+    content: "";
+
+    position: absolute;
+
+    z-index: -2;
+
+    width: 63px;
+
+    height: 63px;
+
+    left: -10px;
+
+    top: -10px;
+
+    border-radius: 50%;
+
+    background:
+
+        repeating-radial-gradient(circle at center, #090a0e 0 2px, #181a21 2.5px 4px),
+
+        #0a0b10;
+
+    border: 1px solid rgba(255,255,255,.18);
+
+    box-shadow:
+
+        0 8px 18px rgba(0,0,0,.45),
+
+        inset 0 0 0 8px rgba(255,255,255,.025);
+
+}
+
+.vinyl-record {
+
+    position: absolute;
+
+    z-index: -1;
+
+    width: 63px;
+
+    height: 63px;
+
+    left: -10px;
+
+    top: -10px;
+
+    border-radius: 50%;
+
+    background:
+
+        radial-gradient(circle at center, #ff4f91 0 6px, #12131a 6.5px 9px, transparent 9.5px),
+
+        radial-gradient(circle at center, transparent 0 21px, rgba(255,255,255,.10) 21.5px 22px, transparent 22.5px),
+
+        radial-gradient(circle at center, transparent 0 28px, rgba(255,255,255,.08) 28.5px 29px, transparent 29.5px),
+
+        #08090d;
+
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.13);
+
+}
+
+.slotify-note {
+
+    position: relative;
+
+    z-index: 3;
+
+}
+
+body.music-playing .slotify-logo::before,
+
+body.music-playing .vinyl-record {
+
+    animation: vinylSpin 2.7s linear infinite;
+
+}
+
+@keyframes vinylSpin {
+
+    to { transform: rotate(360deg); }
+
+}
+
+/* Also activate the vinyl from the existing playing state class */
+
+.slotify-screen:has(.playing-bars.active) .slotify-logo::before,
+
+.slotify-screen:has(.playing-bars.active) .vinyl-record {
+
+    animation: vinylSpin 2.7s linear infinite;
+
+}
+
+/* =========================================================
+
+   GAME CENTER — MORE LIKE REAL MOBILE GAMES
+
+   ========================================================= */
+
+#games {
+
+    background:
+
+        radial-gradient(circle at 90% 0%, rgba(118,92,255,.16), transparent 30%),
+
+        var(--bg);
+
+}
+
+.game-card {
+
+    min-height: 84px;
+
+    border-radius: 21px;
+
+    padding: 11px;
+
+    background: rgba(255,255,255,.055);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    transition: transform .16s ease, background .16s ease, border-color .16s ease;
+
+}
+
+.game-card:hover {
+
+    transform: translateY(-2px);
+
+    background: rgba(255,255,255,.085);
+
+    border-color: rgba(255,255,255,.14);
+
+}
+
+.game-icon {
+
+    width: 54px;
+
+    height: 54px;
+
+    border-radius: 17px;
+
+    display: grid;
+
+    place-items: center;
+
+    font-size: 27px;
+
+    background: linear-gradient(145deg, rgba(118,92,255,.28), rgba(255,255,255,.08));
+
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.12), 0 8px 18px rgba(0,0,0,.18);
+
+}
+
+.play {
+
+    min-width: 56px;
+
+    height: 34px;
+
+    border-radius: 12px;
+
+    background: #fff;
+
+    color: #101117;
+
+    font-size: 9px;
+
+    font-weight: 900;
+
+    box-shadow: 0 5px 14px rgba(0,0,0,.20);
+
+}
+
+.game-stage {
+
+    border-radius: 27px;
+
+    padding: 12px;
+
+    background: rgba(255,255,255,.035);
+
+    border: 1px solid rgba(255,255,255,.07);
+
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.04);
+
+}
+
+.game-canvas {
+
+    width: min(100%, 330px);
+
+    height: auto;
+
+    display: block;
+
+    margin: 8px auto 12px;
+
+    border-radius: 22px;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    box-shadow: 0 16px 35px rgba(0,0,0,.32), inset 0 0 0 1px rgba(255,255,255,.04);
+
+    touch-action: none;
+
+}
+
+.controls {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 9px;
+
+    margin: 10px 0;
+
+}
+
+.controls button {
+
+    min-width: 48px;
+
+    height: 44px;
+
+    border-radius: 15px;
+
+    background: rgba(255,255,255,.09);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    box-shadow: 0 7px 16px rgba(0,0,0,.16);
+
+    font-size: 18px;
+
+}
+
+.game-button {
+
+    border-radius: 15px;
+
+    min-height: 43px;
+
+    background: linear-gradient(135deg, #765cff, #6351db);
+
+    box-shadow: 0 10px 20px rgba(118,92,255,.22);
+
+}
+
+.big-click {
+
+    width: 150px;
+
+    height: 150px;
+
+    border-radius: 50%;
+
+    background: radial-gradient(circle at 35% 28%, #fff, #d9dce8 8%, #8f96aa 18%, #333744 55%, #14161e 100%);
+
+    border: 7px solid #262a36;
+
+    box-shadow: 0 20px 35px rgba(0,0,0,.35), inset 0 3px 8px rgba(255,255,255,.35);
+
+    font-size: 48px;
+
+}
+
+.memory-card {
+
+    border-radius: 16px;
+
+    background: linear-gradient(145deg, #242938, #11131c);
+
+    border: 1px solid rgba(255,255,255,.10);
+
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 7px 14px rgba(0,0,0,.15);
+
+}
+
+.memory-card.revealed {
+
+    background: linear-gradient(145deg, rgba(118,92,255,.42), rgba(255,79,145,.25));
+
+}
+
+.grid2048 .tile,
+
+.grid2048 button {
+
+    border-radius: 13px;
+
+}
+
+@media (max-width: 500px) {
+
+    .phone {
+
+        width: 100vw;
+
+        height: 100vh;
+
+        border: 0;
+
+        border-radius: 0;
+
+    }
+
+    .screen { border-radius: 0; }
+
+    .phone::before { border-radius: 0; }
+
+}
+
+/* =========================================================
+   SLOT PHONE X — iOS 26 STYLE UPGRADE PACK
+   ========================================================= */
+
+:root{
+    --ios-blue:#0a84ff;
+    --ios-green:#30d158;
+    --ios-red:#ff453a;
+    --ios-orange:#ff9f0a;
+    --ios-purple:#bf5af2;
+    --ios-pink:#ff375f;
+    --glass:rgba(28,28,30,.72);
+}
+
+body{
+    background:
+      radial-gradient(circle at 15% 15%,rgba(98,70,190,.35),transparent 28%),
+      radial-gradient(circle at 90% 80%,rgba(15,100,170,.24),transparent 30%),
+      #020204;
+}
+
+.phone{
+    border-color:#09090b;
+    background:#050507;
+    border-radius:52px;
+    box-shadow:0 45px 120px rgba(0,0,0,.75),0 0 0 1px rgba(255,255,255,.08),inset 0 0 0 2px rgba(255,255,255,.04);
+}
+
+.screen{
+    background:
+      radial-gradient(circle at 15% 15%,rgba(120,90,255,.26),transparent 32%),
+      radial-gradient(circle at 90% 75%,rgba(30,130,255,.18),transparent 30%),
+      linear-gradient(160deg,#0b0c18,#020308 65%);
+}
+
+.status-bar{
+    height:48px;
+    padding:10px 22px 0;
+    font-size:12px;
+    font-weight:800;
+}
+
+.status-right{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.dynamic-island{
+    width:122px;
+    height:32px;
+    top:9px;
+    border-radius:22px;
+    box-shadow:0 2px 8px rgba(0,0,0,.7),inset 0 0 0 1px rgba(255,255,255,.04);
+}
+
+.view{
+    padding:64px 16px 100px;
+}
+
+.home-top{
+    margin-top:4px;
+}
+
+.home-top h1{
+    font-size:30px;
+    letter-spacing:-1.3px;
+}
+
+.eyebrow{
+    letter-spacing:1.1px;
+    color:rgba(235,235,245,.58);
+}
+
+.home-search,.game-search,.file-search{
+    height:43px;
+    border:0;
+    background:rgba(118,118,128,.22);
+    backdrop-filter:blur(20px);
+    border-radius:13px;
+}
+
+.home-search input,.game-search input,.file-search input{
+    color:#fff;
+}
+
+.hero-card{
+    border:0;
+    min-height:128px;
+    border-radius:24px;
+    background:
+      linear-gradient(135deg,rgba(48,209,88,.92),rgba(10,132,255,.92));
+    box-shadow:0 18px 40px rgba(0,0,0,.22);
+}
+
+.iOS-app-grid{
+    grid-template-columns:repeat(4,1fr);
+    gap:16px 9px;
+    margin-top:18px;
+}
+
+.ios-app-tile{
+    min-height:74px;
+    padding:0;
+    background:transparent;
+    border:0;
+    gap:6px;
+}
+
+.ios-app-tile:hover{
+    transform:none;
+    border:0;
+}
+
+.ios-app-tile:active .ios-icon{
+    transform:scale(.90);
+}
+
+.ios-icon{
+    width:58px;
+    height:58px;
+    border-radius:15px;
+    font-size:29px;
+    box-shadow:0 4px 9px rgba(0,0,0,.28),inset 0 1px 1px rgba(255,255,255,.25);
+    transition:transform .12s ease;
+}
+
+.ios-app-tile b{
+    font-size:10px;
+    font-weight:600;
+    color:#fff;
+    text-shadow:0 1px 4px #000;
+}
+
+.app-icon.purple{background:linear-gradient(145deg,#7c5cff,#4b2ec9)}
+.app-icon.blue{background:linear-gradient(145deg,#64d9ff,#1478e8)}
+.app-icon.green{background:linear-gradient(145deg,#56e47a,#1b9b45)}
+.app-icon.pink{background:linear-gradient(145deg,#ff72a0,#e21e61)}
+.app-icon.orange{background:linear-gradient(145deg,#ffc14d,#ef6b18)}
+.app-icon.gray{background:linear-gradient(145deg,#9ca3af,#3f434b)}
+.app-icon.slate{background:linear-gradient(145deg,#7b8796,#20242c)}
+.app-icon.yellow{background:linear-gradient(145deg,#ffd866,#ffb000)}
+.app-icon.red{background:linear-gradient(145deg,#ff665d,#d91e2e)}
+
+.home-extra .home-widget,.widget{
+    background:rgba(28,28,30,.60);
+    backdrop-filter:blur(24px);
+    border-color:rgba(255,255,255,.10);
+}
+
+.page-head{
+    margin-bottom:14px;
+}
+
+.page-head h2{
+    font-size:27px;
+    letter-spacing:-.8px;
+}
+
+.back-button,.back{
+    background:rgba(118,118,128,.18);
+    border:0;
+}
+
+.game-search{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    padding:0 12px;
+}
+
+.game-search span{font-size:20px;color:#aeb1bb}
+
+.game-filters{
+    display:flex;
+    gap:7px;
+    margin:12px 0;
+    overflow:auto;
+    scrollbar-width:none;
+}
+.game-filters::-webkit-scrollbar{display:none}
+.filter{
+    border:0;
+    background:rgba(118,118,128,.18);
+    color:#b9bac1;
+    padding:8px 14px;
+    border-radius:20px;
+}
+.filter.active{
+    background:#fff;
+    color:#111;
+}
+
+.game-hero{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px;
+    margin:8px 0 13px;
+    border-radius:22px;
+    background:linear-gradient(135deg,rgba(118,92,255,.38),rgba(10,132,255,.20));
+    border:1px solid rgba(255,255,255,.08);
+}
+.game-hero span,.game-launcher-head small{display:block;font-size:8px;letter-spacing:1.5px;color:#aaa}
+.game-hero strong{display:block;margin-top:5px;font-size:17px}
+.game-hero small{display:block;margin-top:4px;color:#aaa}
+.game-trophy{font-size:36px}
+
+.game-card{
+    width:100%;
+    min-height:72px;
+    border-radius:18px;
+    background:rgba(28,28,30,.68);
+    border:1px solid rgba(255,255,255,.07);
+    backdrop-filter:blur(20px);
+}
+.game-card:hover{transform:translateY(-1px)}
+.game-icon{
+    width:48px;height:48px;border-radius:14px;
+    background:linear-gradient(145deg,#3a2c86,#111a38);
+    box-shadow:inset 0 1px 1px rgba(255,255,255,.16);
+}
+.play{
+    background:#fff;color:#111;border-radius:12px;
+}
+
+.game-launcher{
+    margin-top:15px;
+    border-radius:25px;
+    background:rgba(28,28,30,.72);
+    border:1px solid rgba(255,255,255,.08);
+    overflow:hidden;
+}
+.game-launcher-head{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:15px 16px 4px;
+}
+.game-launcher-head h3{margin:4px 0;font-size:18px}
+.game-launcher-head>span{font-size:28px}
+.game-launcher .game-stage{
+    margin:8px;
+    min-height:410px;
+    border:0;
+    background:rgba(0,0,0,.25);
+}
+
+.game-stage canvas{
+    max-width:100%;
+    box-shadow:0 12px 35px rgba(0,0,0,.35);
+}
+
+.runner-controls{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    width:100%;
+    max-width:320px;
+}
+.runner-controls button{
+    padding:12px;
+    border-radius:14px;
+    background:#fff;
+    color:#111;
+    font-weight:900;
+}
+
+.slotify-search{
+    margin-top:4px;
+}
+.now-playing-card{
+    background:rgba(28,28,30,.72);
+    backdrop-filter:blur(24px);
+}
+.album-art-large{
+    border-radius:24px;
+    box-shadow:0 20px 45px rgba(0,0,0,.35);
+}
+.album-art-large img.playing{
+    animation:albumPulse 2.4s ease-in-out infinite;
+}
+@keyframes albumPulse{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.018)}
+}
+.music-controls .play-button{
+    width:62px;height:62px;
+    box-shadow:0 8px 22px rgba(255,255,255,.14);
+}
+.music-controls button{
+    color:#fff;
+}
+.music-controls button.active{
+    background:rgba(118,92,255,.22);
+    color:#b8a9ff;
+}
+.playlist-song{
+    background:rgba(28,28,30,.70);
+    border:1px solid rgba(255,255,255,.07);
+}
+.playlist-song.active{
+    background:rgba(118,92,255,.20);
+    border-color:rgba(160,140,255,.35);
+}
+
+.ios-dock{
+    left:12px;right:12px;bottom:10px;height:74px;
+    padding:8px 10px;
+    grid-template-columns:repeat(4,1fr);
+    border-radius:25px;
+    background:rgba(245,245,247,.14);
+    border:1px solid rgba(255,255,255,.14);
+    backdrop-filter:blur(30px) saturate(150%);
+}
+.ios-dock .dock-button{gap:2px}
+.ios-dock .dock-button small{display:none}
+.dock-app-icon{
+    width:52px;height:52px;border-radius:14px;
+    display:grid;place-items:center;
+    font-size:27px;
+    box-shadow:0 4px 9px rgba(0,0,0,.28),inset 0 1px 1px rgba(255,255,255,.24);
+}
+.dock-green{background:linear-gradient(145deg,#5de77b,#16a044)}
+.dock-blue{background:linear-gradient(145deg,#5fdcff,#1175dc)}
+.dock-pink{background:linear-gradient(145deg,#ff72a0,#e51e64)}
+
+.calendar-card{
+    padding:15px;border-radius:23px;
+    background:rgba(28,28,30,.70);
+    border:1px solid rgba(255,255,255,.08);
+}
+.calendar-month,.calendar-week,.calendar-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.calendar-month{grid-template-columns:40px 1fr 40px;align-items:center;margin-bottom:14px}
+.calendar-month button{background:rgba(118,118,128,.18);border-radius:10px;height:34px}
+.calendar-month strong{text-align:center;font-size:14px}
+.calendar-week span{text-align:center;font-size:8px;color:#8d8d95}
+.calendar-grid button,.calendar-grid span{aspect-ratio:1;display:grid;place-items:center;border-radius:50%;font-size:11px;background:transparent}
+.calendar-grid button:hover{background:rgba(255,255,255,.08)}
+.calendar-grid button.today{background:#0a84ff;color:#fff;font-weight:900}
+
+.reminder-add{
+    display:flex;gap:8px;margin-bottom:12px;
+}
+.reminder-add input{
+    flex:1;min-width:0;border:0;outline:0;padding:13px 14px;border-radius:14px;
+    background:rgba(118,118,128,.18);color:#fff;
+}
+.reminder-add button{width:46px;border-radius:14px;background:#0a84ff;font-size:22px}
+.reminder-list{display:flex;flex-direction:column;gap:8px}
+.reminder-row{
+    display:grid;grid-template-columns:30px 1fr 18px;gap:10px;align-items:center;
+    padding:14px;border-radius:17px;background:rgba(28,28,30,.70);text-align:left;
+}
+.check-circle{width:24px;height:24px;border-radius:50%;border:2px solid #777;display:grid;place-items:center;color:#fff}
+.reminder-row.done .check-circle{background:#30d158;border-color:#30d158}
+.reminder-row.done>span:nth-child(2){text-decoration:line-through;color:#777}
+
+.file-search{display:flex;align-items:center;gap:8px;padding:0 12px;margin-bottom:12px}
+.file-search input{flex:1;background:transparent;border:0;outline:0}
+.file-drop{
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    min-height:145px;border-radius:22px;border:1px dashed rgba(255,255,255,.18);
+    background:rgba(28,28,30,.55);cursor:pointer;text-align:center;
+}
+.file-drop input{display:none}
+.file-drop span{font-size:34px;color:#0a84ff}
+.file-drop b{margin-top:6px}
+.file-drop small{color:#888;margin-top:4px}
+.file-list{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.file-row{
+    display:grid;grid-template-columns:36px 1fr 20px;align-items:center;gap:10px;
+    padding:12px;border-radius:16px;background:rgba(28,28,30,.70);
+}
+.file-row>span{font-size:23px}
+.file-row b,.file-row small{display:block}
+.file-row small{color:#8d8d95;margin-top:2px}
+
+.empty-state{
+    padding:35px 15px;text-align:center;border-radius:22px;background:rgba(28,28,30,.7)
+}
+.empty-state span{font-size:40px;color:#30d158}
+.empty-state h3{margin:8px 0 3px}
+.empty-state p{margin:0;color:#888;font-size:11px}
+
+.home-indicator{
+    bottom:5px;height:5px;width:118px;border-radius:99px;background:#fff;
+}
+
+@media(max-width:500px){
+    .ios-app-grid{gap:14px 8px}
+    .ios-icon{width:56px;height:56px}
+}
+
+/* =========================================================
+   SLOT PHONE X — MORE REALISTIC IPHONE HOME SCREEN
+   PASTE THIS AT THE VERY BOTTOM OF style.css
+   ========================================================= */
+
+/* REALISTIC IPHONE-STYLE WALLPAPER */
+.screen {
+    background:
+        radial-gradient(
+            circle at 20% 5%,
+            rgba(255, 120, 210, 0.42),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 18%,
+            rgba(90, 150, 255, 0.42),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(100, 50, 220, 0.35),
+            transparent 42%
+        ),
+        linear-gradient(
+            145deg,
+            #17204b 0%,
+            #11183c 35%,
+            #090d25 65%,
+            #03040c 100%
+        );
+}
+
+/* MAKE THE HOME SCREEN FEEL LIKE IOS */
+#home {
+    background: transparent;
+}
+
+/* HOME SCREEN CONTENT */
+#home.view {
+    padding-top: 68px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* TOP GREETING */
+.home-top {
+    padding: 0 5px;
+}
+
+.home-top h1 {
+    font-size: 29px;
+    font-weight: 700;
+    letter-spacing: -1.4px;
+    text-shadow: 0 2px 15px rgba(0,0,0,.25);
+}
+
+.eyebrow {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    color: rgba(255,255,255,.68);
+}
+
+/* PROFILE BUTTON */
+.profile-button {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.18);
+    border: 1px solid rgba(255,255,255,.18);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow:
+        0 5px 20px rgba(0,0,0,.18),
+        inset 0 1px 1px rgba(255,255,255,.2);
+}
+
+/* WEATHER WIDGET */
+.hero-card {
+    margin-top: 18px;
+    min-height: 112px;
+    padding: 19px;
+    border-radius: 25px;
+    border: 1px solid rgba(255,255,255,.16);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(70,130,255,.78),
+            rgba(105,70,220,.68)
+        );
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.25),
+        inset 0 1px 1px rgba(255,255,255,.2);
+}
+
+.hero-card strong {
+    font-size: 39px;
+    letter-spacing: -2px;
+}
+
+.hero-card p {
+    font-size: 11px;
+    color: rgba(255,255,255,.78);
+}
+
+/* SEARCH BAR */
+.home-search {
+    height: 40px;
+    margin-top: 14px;
+    border-radius: 13px;
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(40,40,50,.48);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    box-shadow:
+        inset 0 1px 1px rgba(255,255,255,.08);
+}
+
+.home-search input {
+    color: white;
+    font-size: 14px;
+}
+
+.home-search input::placeholder {
+    color: rgba(255,255,255,.55);
+}
+
+/* =========================================================
+   IPHONE APP GRID
+   ========================================================= */
+
+#home-app-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 17px 10px;
+    margin-top: 19px;
+    padding: 0 3px;
+}
+
+/* REMOVE CARD LOOK FROM APPS */
+#home-app-grid .ios-app-tile {
+    min-height: 70px;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    gap: 5px;
+}
+
+/* APP ICON */
+#home-app-grid .ios-icon {
+    width: 57px;
+    height: 57px;
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 28px;
+
+    border: 0;
+
+    box-shadow:
+        0 5px 12px rgba(0,0,0,.28),
+        inset 0 1px 1px rgba(255,255,255,.35);
+
+    transition:
+        transform .16s ease,
+        filter .16s ease;
+}
+
+/* ICON PRESS EFFECT */
+#home-app-grid .ios-app-tile:active .ios-icon {
+    transform: scale(.86);
+    filter: brightness(.8);
+}
+
+/* ICON GLOSS */
+#home-app-grid .ios-icon::after {
+    content: "";
+    position: absolute;
+}
+
+/* INDIVIDUAL APP COLORS */
+
+#home-app-grid .app-icon.purple {
+    background:
+        linear-gradient(
+            145deg,
+            #9c6cff,
+            #5a36d6
+        );
+}
+
+#home-app-grid .app-icon.blue {
+    background:
+        linear-gradient(
+            145deg,
+            #52b7ff,
+            #0878e8
+        );
+}
+
+#home-app-grid .app-icon.green {
+    background:
+        linear-gradient(
+            145deg,
+            #45df72,
+            #18a957
+        );
+}
+
+#home-app-grid .app-icon.pink {
+    background:
+        linear-gradient(
+            145deg,
+            #ff72ad,
+            #e82e68
+        );
+}
+
+#home-app-grid .app-icon.orange {
+    background:
+        linear-gradient(
+            145deg,
+            #ffbd54,
+            #f06b20
+        );
+}
+
+#home-app-grid .app-icon.yellow {
+    background:
+        linear-gradient(
+            145deg,
+            #ffe66d,
+            #eab500
+        );
+}
+
+#home-app-grid .app-icon.gray {
+    background:
+        linear-gradient(
+            145deg,
+            #8d96a8,
+            #424957
+        );
+}
+
+#home-app-grid .app-icon.slate {
+    background:
+        linear-gradient(
+            145deg,
+            #70788b,
+            #272d3a
+        );
+}
+
+/* APP NAMES */
+#home-app-grid .ios-app-tile b {
+    color: white;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: -.1px;
+    text-shadow: 0 1px 4px rgba(0,0,0,.7);
+}
+
+/* =========================================================
+   REMOVE THE BIG CARDS UNDER THE APPS
+   ========================================================= */
+
+.home-extra {
+    margin-top: 22px;
+}
+
+.home-widget {
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.12);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 22px;
+}
+
+/* =========================================================
+   IPHONE GLASS DOCK
+   ========================================================= */
+
+.ios-dock {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: 18px;
+
+    height: 82px;
+
+    padding: 10px 13px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+
+    border-radius: 27px;
+
+    background:
+        rgba(245,245,250,.22);
+
+    border: 1px solid rgba(255,255,255,.20);
+
+    backdrop-filter: blur(35px) saturate(160%);
+    -webkit-backdrop-filter: blur(35px) saturate(160%);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.28),
+        inset 0 1px 1px rgba(255,255,255,.22);
+
+    z-index: 80;
+}
+
+/* DOCK BUTTON */
+.ios-dock .dock-button {
+    background: transparent;
+    border: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+
+    min-width: 0;
+}
+
+/* DOCK ICONS */
+.ios-dock .dock-app-icon {
+    width: 51px;
+    height: 51px;
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 25px;
+
+    box-shadow:
+        0 5px 12px rgba(0,0,0,.25),
+        inset 0 1px 1px rgba(255,255,255,.3);
+}
+
+/* DOCK COLORS */
+.ios-dock .dock-green {
+    background: linear-gradient(
+        145deg,
+        #43dc70,
+        #16a957
+    );
+}
+
+.ios-dock .dock-blue {
+    background: linear-gradient(
+        145deg,
+        #57bdff,
+        #0878e8
+    );
+}
+
+.ios-dock .dock-pink {
+    background: linear-gradient(
+        145deg,
+        #ff70ad,
+        #df2f68
+    );
+}
+
+/* DOCK LABELS */
+.ios-dock small {
+    display: none;
+}
+
+/* =========================================================
+   IPHONE HOME INDICATOR
+   ========================================================= */
+
+.home-indicator {
+    position: absolute;
+
+    left: 50%;
+    bottom: 7px;
+
+    transform: translateX(-50%);
+
+    width: 112px;
+    height: 5px;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,.92);
+
+    box-shadow:
+        0 1px 4px rgba(0,0,0,.5);
+
+    z-index: 100;
+}
+
+/* =========================================================
+   DYNAMIC ISLAND
+   ========================================================= */
+
+.dynamic-island {
+    width: 126px;
+    height: 34px;
+
+    top: 9px;
+
+    background: #000;
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.7),
+        inset 0 1px 1px rgba(255,255,255,.05);
+
+    z-index: 200;
+}
+
+/* =========================================================
+   IPHONE STATUS BAR
+   ========================================================= */
+
+.status-bar {
+    height: 48px;
+    padding: 10px 22px 0;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    color: white;
+
+    z-index: 150;
+}
+
+.status-right {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+/* =========================================================
+   VIEW CONTAINERS
+   ========================================================= */
+
+.view {
+    background: transparent;
+}
+
+/* APP PAGE HEADERS */
+.page-head {
+    margin-top: 4px;
+}
+
+.page-head h2 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+/* IPHONE BACK BUTTON */
+.back-button,
+.back {
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: rgba(118,118,128,.24);
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    font-size: 28px;
+}
+
+/* GLASS CARDS THROUGHOUT PHONE */
+.game-card,
+.game-stage,
+.widget,
+.settings-card,
+.store-item,
+.timer-card,
+.coins-card,
+.weather-details,
+.weather-main-card,
+.mail-item,
+.file-row,
+.photo-card {
+    border-color: rgba(255,255,255,.10);
+}
+
+/* =========================================================
+   IPHONE-LIKE ANIMATIONS
+   ========================================================= */
+
+@keyframes iosAppOpen {
+    from {
+        opacity: 0;
+        transform: scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.view.active {
+    animation: iosAppOpen .22s ease-out;
+}
+
+/* =========================================================
+   SMALL SCREEN FIX
+   ========================================================= */
+
+@media (max-width: 450px) {
+
+    #home-app-grid .ios-icon {
+        width: 54px;
+        height: 54px;
+        font-size: 26px;
+        border-radius: 14px;
+    }
+
+    #home-app-grid {
+        gap: 15px 8px;
+    }
+
+    .ios-dock {
+        left: 9px;
+        right: 9px;
+        bottom: 16px;
+    }
+
+    .ios-dock .dock-app-icon {
+        width: 49px;
+        height: 49px;
+    }
+
+}
+
+/* Game Center refresh */
+
+#games:not(.playing-game) .game-hero {
+    min-height: 122px;
+    gap: 12px;
+    padding: 17px;
+    border-color: rgba(126, 226, 189, .22);
+    background: linear-gradient(120deg, rgba(35, 155, 113, .34), rgba(12, 112, 155, .2) 64%, rgba(245, 179, 80, .13));
+}
+
+.game-hero > div { min-width: 0; }
+.game-hero span { color: #9fe6c2; }
+.game-hero strong { font-size: 19px; }
+.game-hero small { max-width: 230px; font-size: 11px; line-height: 1.4; }
+
+#game-daily-play {
+    flex: 0 0 auto;
+    min-height: 42px;
+    padding: 0 12px;
+    border: 1px solid rgba(255,255,255,.22);
+    border-radius: 12px;
+    background: #e4ffef;
+    color: #123c2c;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+#game-daily-play span { display: inline; margin-left: 5px; color: inherit; font-size: 15px; }
+
+.game-record-strip {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    margin: 0 0 15px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 13px;
+    background: rgba(255,255,255,.07);
+}
+
+.game-record-strip > div {
+    display: grid;
+    gap: 3px;
+    padding: 9px 11px;
+    background: rgba(16,19,25,.74);
+}
+
+.game-record-strip strong { font-size: 16px; font-variant-numeric: tabular-nums; }
+.game-record-strip span { color: rgba(255,255,255,.52); font-size: 8px; font-weight: 700; }
+
+.game-search {
+    min-height: 42px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 13px;
+    background: rgba(255,255,255,.07);
+}
+
+.game-search input { flex: 1; min-width: 0; color: #fff; font: inherit; }
+.game-filters { padding-bottom: 2px; }
+.game-filters .filter { min-height: 34px; border: 1px solid rgba(255,255,255,.1); font-size: 10px; }
+.game-filters .filter.active { border-color: #a8e5c6; background: #b8efcf; color: #152a20; }
+
+.game-card {
+    grid-template-columns: 50px minmax(0, 1fr) auto;
+    gap: 11px;
+    min-height: 92px;
+    padding: 11px;
+    border-radius: 15px;
+    background: linear-gradient(110deg, rgba(255,255,255,.075), rgba(255,255,255,.035));
+}
+
+.game-card:hover { border-color: rgba(255,255,255,.2); }
+.game-icon { width: 48px; height: 48px; border-radius: 15px; font-size: 24px; }
+.game-info h3 { font-size: 13px; }
+.game-info p { font-size: 10px; line-height: 1.35; }
+.game-card-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 5px 8px; margin-top: 6px; }
+.game-category { color: #a9d9c2; font-size: 8px; font-weight: 800; text-transform: uppercase; }
+.game-info .best { color: rgba(255,255,255,.55); font-size: 8px; }
+.game-card-controls { min-width: 65px; }
+.game-card-controls .play { min-height: 31px; border: 0; background: #ffd36e; color: #34240b; font-weight: 900; }
+.game-card-controls .game-install { min-height: 28px; }
+.game-card-controls .game-icon-upload { min-height: 25px; color: rgba(255,255,255,.64); }
+
+.game-empty {
+    padding: 18px 14px;
+    border: 1px dashed rgba(255,255,255,.2);
+    border-radius: 13px;
+    color: rgba(255,255,255,.65);
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+#games.playing-game .game-record-strip { display: none; }
+
+.ttt-toolbar,
+.whack-toolbar {
+    display: flex;
+    width: min(100%, 330px);
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.ttt-levels,
+.whack-levels,
+.trivia-categories {
+    display: flex;
+    min-width: 0;
+    gap: 4px;
+    padding: 3px;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 11px;
+    background: rgba(255,255,255,.06);
+}
+
+.ttt-levels button,
+.whack-levels button,
+.trivia-categories button {
+    min-height: 30px;
+    padding: 0 8px;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: rgba(255,255,255,.66);
+    font-size: 9px;
+    font-weight: 700;
+}
+
+.ttt-levels button.active,
+.whack-levels button.active,
+.trivia-categories button.active { background: #d9f7e5; color: #173c2b; }
+
+.tictactoe-grid button {
+    border-radius: 15px;
+    background: linear-gradient(145deg, rgba(255,255,255,.11), rgba(255,255,255,.045));
+    font-size: 38px;
+    font-weight: 800;
+    transition: background .16s ease, transform .16s ease;
+}
+
+.tictactoe-grid button.x { color: #7be0cf; }
+.tictactoe-grid button.o { color: #ffd36e; }
+.tictactoe-grid button.winner { border-color: #9ce9bd; background: rgba(89,201,137,.3); }
+
+.whack-scoreboard {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: min(100%, 330px);
+    gap: 7px;
+    margin: 10px 0;
+}
+
+.whack-scoreboard div { display: grid; gap: 2px; padding: 8px; border-radius: 10px; background: rgba(255,255,255,.07); text-align: center; }
+.whack-scoreboard small { color: rgba(255,255,255,.55); font-size: 8px; font-weight: 800; }
+.whack-scoreboard strong { font-size: 17px; font-variant-numeric: tabular-nums; }
+.whack-grid button { position: relative; overflow: hidden; border-radius: 15px; background: rgba(255,255,255,.055); }
+.whack-grid button.active { border-color: rgba(255,203,93,.55); background: radial-gradient(circle, rgba(255,203,93,.36), rgba(224,119,41,.18)); animation: target-pop .28s ease-out; }
+.whack-grid button.active::before { content: "✦"; color: #ffe28a; text-shadow: 0 0 18px #ffb941; }
+
+@keyframes target-pop {
+    from { transform: scale(.78); opacity: .55; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.trivia-toolbar { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 5px; }
+.trivia-categories { gap: 1px; }
+.trivia-categories button { padding: 0 6px; font-size: 8px; }
+.trivia-progress-label { color: rgba(255,255,255,.6); font-size: 10px; font-variant-numeric: tabular-nums; }
+.trivia-progress { width: 100%; height: 4px; margin: 10px 0; overflow: hidden; border-radius: 4px; background: rgba(255,255,255,.1); }
+.trivia-progress span { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #56c8aa, #ffd36e); transition: width .2s ease; }
+.trivia-round-score { display: flex; width: 100%; justify-content: space-between; color: rgba(255,255,255,.64); font-size: 10px; }
+.trivia-round-score b { color: #fff; }
+.trivia-category-tag { margin-top: 15px; color: #a7e2c1; font-size: 9px; font-weight: 800; text-transform: uppercase; }
+.trivia-question { max-width: 330px; margin: 8px auto 14px; font-size: 18px; line-height: 1.3; }
+.trivia-options { width: 100%; max-width: 330px; }
+.trivia-option { min-height: 46px; padding: 9px 12px; border: 1px solid rgba(255,255,255,.12); border-radius: 12px; background: rgba(255,255,255,.065); color: #fff; font-size: 12px; text-align: left; }
+.trivia-option.correct { border-color: #5bc68d; background: rgba(42,157,97,.28); }
+.trivia-option.incorrect { border-color: #e36b6b; background: rgba(172,48,58,.25); }
+.trivia-feedback { min-height: 18px; margin: 12px 0 4px; color: rgba(255,255,255,.68); font-size: 11px; text-align: center; }
+.trivia-next { width: min(100%, 330px); }
+.trivia-finish { display: grid; justify-items: center; gap: 8px; margin: auto; text-align: center; }
+.trivia-finish-icon { font-size: 46px; }
+.trivia-finish .eyebrow { margin: 0; color: #a7e2c1; font-size: 9px; }
+.trivia-finish h3 { margin: 0; font-size: 40px; }
+.trivia-finish p { margin: 0 0 8px; color: rgba(255,255,255,.67); font-size: 12px; }
+
+@media (max-width: 390px) {
+    .game-hero { align-items: flex-start; flex-direction: column; }
+    #game-daily-play { align-self: flex-start; }
+    .game-card { grid-template-columns: 42px minmax(0, 1fr) 62px; gap: 8px; padding: 9px; }
+    .game-icon { width: 42px; height: 42px; font-size: 21px; }
+    .game-card-controls { min-width: 62px; }
+    .game-card-controls .play, .game-card-controls .game-install, .game-card-controls .game-icon-upload { min-width: 58px; padding: 0 4px; font-size: 8px; }
+    .ttt-levels button, .whack-levels button { padding: 0 6px; }
+}
+
+/* Assistant chat, photo editor, and swipe-to-search states */
+
+.home-search input[readonly] {
+    cursor: ns-resize;
+}
+
+#home.search-unlocked .home-search {
+    border-color: rgba(104, 190, 255, .72);
+    box-shadow: 0 0 0 3px rgba(57, 151, 255, .16), inset 0 1px 1px rgba(255,255,255,.08);
+}
+
+#home-app-grid .ios-icon {
+    position: relative;
+    overflow: hidden;
+    border-radius: 17px;
+    box-shadow: 0 7px 16px rgba(0,0,0,.32), inset 0 1px 1px rgba(255,255,255,.38);
+}
+
+#home-app-grid .ios-icon::after {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 47%;
+    border-radius: inherit;
+    background: linear-gradient(rgba(255,255,255,.22), rgba(255,255,255,0));
+    pointer-events: none;
+}
+
+#home-app-grid [data-name="safari"] .ios-icon { background: linear-gradient(145deg, #63d6ff, #1769d2); }
+#home-app-grid [data-name="camera"] .ios-icon { background: linear-gradient(145deg, #9ba8b8, #394657); }
+#home-app-grid [data-name="photos"] .ios-icon { background: linear-gradient(145deg, #ff9a5c, #e3447c 54%, #7856d9); }
+#home-app-grid [data-name="shorts"] .ios-icon { background: linear-gradient(145deg, #ff585d, #c31634); }
+#home-app-grid [data-name="maps"] .ios-icon { background: linear-gradient(145deg, #6cdb83, #178b73); }
+#home-app-grid [data-name="calendar"] .ios-icon { background: linear-gradient(145deg, #ff726e, #dc293d); }
+#home-app-grid [data-name="reminders"] .ios-icon { background: linear-gradient(145deg, #ffd260, #eb762e); }
+#home-app-grid [data-name="notes"] .ios-icon { background: linear-gradient(145deg, #ffe88a, #e9aa25); }
+#home-app-grid [data-name="files"] .ios-icon { background: linear-gradient(145deg, #72d5ff, #3077d4); }
+#home-app-grid [data-name="contacts"] .ios-icon { background: linear-gradient(145deg, #ffa75f, #d95c32); }
+#home-app-grid [data-name="calculator"] .ios-icon { background: linear-gradient(145deg, #4e5665, #171c25); }
+#home-app-grid [data-name="clock"] .ios-icon { background: linear-gradient(145deg, #717b8b, #202732); }
+#home-app-grid [data-name="app store"] .ios-icon { background: linear-gradient(145deg, #64c5ff, #2666db); }
+#home-app-grid [data-name="assistant ai chat"] .ios-icon { background: linear-gradient(145deg, #47d9ad, #1478c6); }
+
+#assistant.view.active {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#assistant .page-head,
+.assistant-disclosure,
+.assistant-composer {
+    flex: 0 0 auto;
+}
+
+.assistant-disclosure {
+    margin: 0 0 12px;
+    color: rgba(255,255,255,.57);
+    font-size: 11px;
+    line-height: 1.45;
+}
+
+.assistant-clear {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 13px;
+    background: rgba(255,255,255,.08);
+    color: #fff;
+    font-size: 19px;
+}
+
+.assistant-messages {
+    display: flex;
+    flex: 1 1 auto;
+    min-height: 80px;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+    padding: 8px 2px 14px;
+    overscroll-behavior: contain;
+}
+
+.assistant-message {
+    max-width: 88%;
+    margin: 0;
+    padding: 11px 13px;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 15px;
+    background: rgba(255,255,255,.09);
+    color: #f7f8fa;
+    font-size: 13px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.assistant-message.user {
+    align-self: flex-end;
+    border-color: rgba(85,184,255,.35);
+    background: #1479bd;
+}
+
+.assistant-composer {
+    display: flex;
+    gap: 8px;
+    padding: 9px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 17px;
+    background: rgba(255,255,255,.08);
+}
+
+.assistant-composer input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #fff;
+    font: inherit;
+}
+
+.assistant-composer button {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 12px;
+    background: #1597ce;
+    color: #fff;
+    font-size: 18px;
+}
+
+body .photo-viewer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    padding: 64px 14px 16px;
+}
+
+body .photo-viewer > img {
+    max-width: min(100%, 900px);
+    max-height: 58vh;
+    transition: filter .12s ease, transform .12s ease;
+}
+
+.photo-editor {
+    width: min(100%, 510px);
+    max-height: 35vh;
+    overflow-y: auto;
+    padding: 12px;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 14px;
+    background: rgba(34,37,43,.96);
+}
+
+.photo-editor label {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 4px 12px;
+    color: #f4f5f7;
+    font-size: 11px;
+}
+
+.photo-editor label span { color: rgba(255,255,255,.58); }
+.photo-editor label input { grid-column: 1 / -1; width: 100%; accent-color: #5ebcff; }
+
+.photo-editor-actions {
+    display: flex;
+    gap: 7px;
+    margin-top: 8px;
+}
+
+.photo-editor-actions button {
+    flex: 1;
+    min-width: 0;
+    min-height: 38px;
+    padding: 0 7px;
+    border: 1px solid rgba(255,255,255,.14);
+    border-radius: 10px;
+    background: rgba(255,255,255,.1);
+    color: #fff;
+    font-size: 11px;
+}
+
+.photo-editor-actions button:last-child { background: #087fbe; }
+body .photo-viewer .photo-delete { top: 18px; right: auto; bottom: auto; left: 18px; }
+
+@media (max-width: 500px) {
+    body .photo-viewer > img { max-height: 39vh; }
+    .photo-editor { max-height: 39vh; }
+}
+
+/* SAFARI SEARCH, SHORTS UPLOAD, AND CALL ACTIONS */
+
+#browser .browser-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 48px;
+    margin: 10px 0 14px;
+    padding: 5px 7px 5px 13px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 16px;
+    background: rgba(255, 255, 255, .09);
+}
+
+#browser .browser-bar input {
+    flex: 1;
+    width: 0;
+    min-width: 0;
+    padding: 8px 2px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #fff;
+    font: inherit;
+}
+
+#browser .browser-bar button,
+#browser .browser-shortcuts button,
+.search-result-open,
+.search-back {
+    border: 1px solid rgba(255, 255, 255, .14);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .12);
+    color: #fff;
+}
+
+#browser .browser-bar button {
+    min-height: 36px;
+    min-width: 34px;
+    padding: 0 8px;
+    background: #1685e8;
+}
+
+#browser .browser-bar #browser-back,
+#browser .browser-bar #browser-forward,
+#browser .browser-bar #browser-reload {
+    background: rgba(255,255,255,.1);
+    font-size: 19px;
+}
+
+#browser .browser-home {
+    padding: 18px 8px 14px;
+    text-align: center;
+}
+
+#browser .browser-logo {
+    display: grid;
+    width: 54px;
+    height: 54px;
+    margin: 0 auto 10px;
+    place-items: center;
+    border-radius: 17px;
+    background: linear-gradient(145deg, #69ccff, #127bde);
+    color: #fff;
+    font-size: 35px;
+}
+
+#browser .browser-home h1 {
+    margin: 8px 0 4px;
+    font-size: 23px;
+}
+
+#browser .browser-home > p {
+    margin: 0 auto 15px;
+    color: rgba(255, 255, 255, .64);
+    font-size: 12px;
+}
+
+#browser .browser-shortcuts {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+#browser .browser-shortcuts button {
+    display: flex;
+    min-height: 42px;
+    align-items: center;
+    gap: 7px;
+    padding: 0 12px;
+    font-size: 12px;
+}
+
+#browser-results {
+    padding-bottom: 20px;
+}
+
+.browser-page-toolbar {
+    display: grid;
+    gap: 5px;
+    padding: 8px 4px;
+    color: rgba(255,255,255,.8);
+    overflow-wrap: anywhere;
+}
+
+.browser-page-toolbar small {
+    color: rgba(255,255,255,.52);
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+.browser-frame {
+    display: block;
+    width: 100%;
+    height: min(54vh, 500px);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 13px;
+    background: #fff;
+}
+
+.browser-image {
+    display: block;
+    max-width: 100%;
+    max-height: 55vh;
+    margin: 8px auto;
+    object-fit: contain;
+}
+
+.browser-external-link {
+    display: inline-block;
+    margin-top: 9px;
+    color: #8ecbff;
+    font-size: 11px;
+}
+
+.browser-frame-blocked {
+    margin: 8px 2px 0;
+    padding: 9px 10px;
+    border-radius: 10px;
+    background: rgba(255,190,92,.12);
+    color: #ffd594;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.search-count,
+.search-loading {
+    padding: 0 4px;
+    color: rgba(255, 255, 255, .6);
+    font-size: 12px;
+}
+
+.search-result-list {
+    display: grid;
+    gap: 9px;
+}
+
+.search-result,
+.search-article,
+.search-empty {
+    padding: 14px;
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 15px;
+    background: rgba(19, 23, 31, .82);
+}
+
+.search-result-title {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #75bdff;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: left;
+}
+
+.search-result p,
+.search-article p,
+.search-empty p {
+    margin: 7px 0 10px;
+    color: rgba(255, 255, 255, .77);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.search-result-open,
+.search-back {
+    padding: 7px 10px;
+    font-size: 11px;
+}
+
+.search-article h2 {
+    margin: 14px 0 8px;
+    font-size: 22px;
+}
+
+.search-article img {
+    float: right;
+    width: min(38%, 130px);
+    max-height: 150px;
+    margin: 0 0 8px 12px;
+    border-radius: 12px;
+    object-fit: cover;
+}
+
+.search-article small {
+    color: rgba(255, 255, 255, .48);
+}
+
+.search-empty {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.search-empty strong {
+    display: block;
+    font-size: 15px;
+}
+
+.shorts-upload-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin: 8px 0 0;
+}
+
+#shorts-upload {
+    min-height: 38px;
+    padding: 0 13px;
+    border: 1px solid rgba(255, 255, 255, .18);
+    border-radius: 12px;
+    background: #1685e8;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+#shorts-storage-status {
+    color: rgba(255, 255, 255, .56);
+    font-size: 10px;
+    text-align: right;
+}
+
+.shorts-feed {
+    margin-top: 8px;
+}
+
+.shorts-feed:focus-visible {
+    outline: 2px solid #64b5ff;
+    outline-offset: -2px;
+}
+
+.short-actions button[aria-pressed="true"] {
+    background: #d8385b;
+}
+
+.contact-call {
+    display: inline-flex;
+    min-width: 50px;
+    min-height: 34px;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    padding: 0 11px;
+    border: 1px solid rgba(58, 215, 125, .35);
+    border-radius: 12px;
+    background: rgba(48, 209, 88, .16);
+    color: #79e99b;
+    font-size: 11px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.contact-add-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr) 42px;
+    gap: 7px;
+    margin: 12px 0;
+}
+
+.contact-add-form input {
+    min-width: 0;
+    height: 42px;
+    padding: 0 10px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 12px;
+    outline: 0;
+    background: rgba(255, 255, 255, .09);
+    color: #fff;
+    font: inherit;
+    font-size: 11px;
+}
+
+.contact-add-form input:focus,
+#browser .browser-bar input:focus {
+    border-color: #1685e8;
+    box-shadow: 0 0 0 2px rgba(22, 133, 232, .2);
+}
+
+.contact-add-form button {
+    border: 0;
+    border-radius: 12px;
+    background: #1685e8;
+    color: #fff;
+    font-size: 20px;
+}
+
+.contact-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.contact-row > div:nth-child(2) {
+    min-width: 0;
+}
+
+.contact-row small {
+    display: block;
+    margin-top: 3px;
+    color: rgba(255, 255, 255, .6);
+}
+
+.app-store-search {
+    margin: 8px 0 12px;
+}
+
+.app-store-search input {
+    width: 100%;
+    min-height: 40px;
+    padding: 0 12px;
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 12px;
+    background: rgba(255,255,255,.08);
+    color: #fff;
+    font: inherit;
+}
+
+.app-catalog {
+    display: grid;
+    gap: 7px;
+    margin-bottom: 18px;
+}
+
+.app-catalog-item {
+    display: grid;
+    grid-template-columns: 42px minmax(0,1fr) auto auto;
+    align-items: center;
+    gap: 10px;
+    min-height: 60px;
+    padding: 7px 9px;
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 13px;
+    background: rgba(255,255,255,.055);
+}
+
+.app-catalog-icon {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border-radius: 12px;
+    background: rgba(255,255,255,.1);
+    font-size: 21px;
+}
+
+.app-catalog-details {
+    display: grid;
+    min-width: 0;
+    gap: 3px;
+}
+
+.app-catalog-details b {
+    overflow: hidden;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.app-catalog-details small {
+    color: rgba(255,255,255,.55);
+    font-size: 10px;
+}
+
+.app-catalog-action {
+    min-width: 58px;
+    min-height: 32px;
+    padding: 0 9px;
+    border: 0;
+    border-radius: 16px;
+    background: rgba(22,133,232,.23);
+    color: #8ecbff;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.app-catalog-action:disabled {
+    opacity: .5;
+}
+
+.app-catalog-remove {
+    min-width: 54px;
+    background: rgba(255,90,90,.12);
+    color: #ffaaaa;
+}
+
+.game-card-controls {
+    display: grid;
+    gap: 4px;
+    justify-items: stretch;
+    min-width: 68px;
+}
+
+.game-card-controls .play,
+.game-card-controls .game-install,
+.game-card-controls .game-icon-upload {
+    min-width: 64px;
+    min-height: 27px;
+    padding: 0 6px;
+    border-radius: 8px;
+    font-size: 9px;
+}
+
+.game-install,
+.game-icon-upload {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,255,255,.14);
+    background: rgba(255,255,255,.1);
+    color: #fff;
+    cursor: pointer;
+}
+
+.game-icon img,
+.game-home-icon img {
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-fit: cover;
+}
+
+#games.playing-game .game-search,
+#games.playing-game .game-filters,
+#games.playing-game .game-hero,
+#games.playing-game #game-list {
+    display: none;
+}
+
+#games.playing-game .game-launcher {
+    margin-top: 12px;
+}
+
+.tictactoe-grid,
+.whack-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
+    width: min(100%, 300px);
+    margin: 12px auto;
+}
+
+.tictactoe-grid button,
+.whack-grid button {
+    aspect-ratio: 1;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 12px;
+    background: rgba(255,255,255,.08);
+    color: #fff;
+    font-size: 30px;
+}
+
+.whack-grid button.active {
+    background: #a54f35;
+}
+
+.trivia-question {
+    margin: 14px 0;
+    text-align: center;
+}
+
+.trivia-options {
+    display: grid;
+    gap: 7px;
+}
+
+.camera-container {
+    display: grid;
+    justify-items: center;
+    gap: 12px;
+    padding: 12px;
+}
+
+#camera-video {
+    width: 100%;
+    max-height: 48vh;
+    aspect-ratio: 3 / 4;
+    border-radius: 18px;
+    background: #101114;
+    object-fit: cover;
+}
+
+.camera-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.camera-controls button {
+    min-width: 44px;
+    min-height: 44px;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 50%;
+    background: rgba(255,255,255,.12);
+    color: #fff;
+}
+
+.camera-container > p {
+    margin: 0;
+    color: rgba(255,255,255,.65);
+    font-size: 11px;
+    text-align: center;
+}
+
+.camera-controls .camera-shutter {
+    width: 58px;
+    height: 58px;
+    border: 4px solid rgba(255,255,255,.86);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(255,255,255,.18);
+    color: #d53b4b;
+    font-size: 22px;
+}
+
+#camera-record {
+    min-width: 62px;
+    border-radius: 14px;
+    background: #b72e3d;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+#camera-record.recording {
+    background: #f0404b;
+    animation: recordPulse 1s ease-in-out infinite alternate;
+}
+
+.recorded-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-viewer video {
+    width: min(100%, 720px);
+    max-height: 82vh;
+    border-radius: 12px;
+    background: #000;
+}
+
+@keyframes recordPulse {
+    to { opacity: .62; }
+}
+
+#messages .message-contact {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+#messages .message-contact > div:last-child {
+    display: grid;
+    gap: 3px;
+}
+
+#messages .message-contact small,
+.message-local-note {
+    color: rgba(255,255,255,.52);
+    font-size: 10px;
+}
+
+.message-recipient-row {
+    display: grid;
+    grid-template-columns: auto minmax(0,1fr) 38px;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 12px;
+    color: rgba(255,255,255,.58);
+    font-size: 11px;
+}
+
+.message-recipient-row select {
+    min-width: 0;
+    height: 34px;
+    padding: 0 9px;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 10px;
+    background: rgba(255,255,255,.08);
+    color: #fff;
+}
+
+.message-recipient-row select option {
+    color: #17191d;
+}
+
+.message-recipient-row button {
+    width: 36px;
+    height: 34px;
+    border: 0;
+    border-radius: 10px;
+    background: #258a64;
+    color: #fff;
+    font-size: 17px;
+}
+
+#messages .message-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-height: 120px;
+    overflow-y: auto;
+    padding: 12px;
+}
+
+#messages .message {
+    max-width: 82%;
+    padding: 9px 12px;
+    border-radius: 15px;
+    background: rgba(255,255,255,.12);
+    color: #fff;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+#messages .message.sent {
+    align-self: flex-end;
+    background: #218460;
+}
+
+#messages .message.received {
+    align-self: flex-start;
+}
+
+#messages .message-composer {
+    display: flex;
+    gap: 8px;
+    padding: 8px 12px 2px;
+}
+
+#messages .message-composer input {
+    flex: 1;
+    min-width: 0;
+    height: 40px;
+    padding: 0 13px;
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 20px;
+    background: rgba(255,255,255,.08);
+    color: #fff;
+}
+
+#messages .message-composer button {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    background: #258a64;
+    color: #fff;
+}
+
+.message-local-note {
+    margin: 3px 12px 8px;
+    text-align: center;
+}
+
+@media (max-width: 360px) {
+    .contact-add-form {
+        grid-template-columns: 1fr 1fr 38px;
+        gap: 5px;
+    }
+
+    .contact-add-form input {
+        padding: 0 7px;
+        font-size: 10px;
+    }
+}
+
+/* APP INTERACTION DETAILS */
+
+#app-root .view button {
+    transition: filter .14s ease, transform .14s ease, background-color .14s ease;
+}
+
+#app-root .view button:hover:not(:disabled) {
+    filter: brightness(1.12);
+}
+
+#app-root .view button:active:not(:disabled) {
+    transform: scale(.97);
+}
+
+#app-root .view button:focus-visible,
+#app-root .view a:focus-visible,
+#app-root .view input:focus-visible,
+#app-root .view select:focus-visible,
+#app-root .view textarea:focus-visible {
+    outline: 2px solid #76c5ff;
+    outline-offset: 2px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.photo-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 0 12px;
+}
+
+#photos .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+}
+
+#photos .photo-card {
+    display: grid;
+    width: 100%;
+    min-width: 0;
+    aspect-ratio: 1;
+    place-items: center;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 12px;
+    background: rgba(28, 28, 30, .7);
+    font-size: 30px;
+}
+
+.photo-actions button,
+#browser-external {
+    border: 0;
+    border-radius: 12px;
+    padding: 10px 14px;
+    background: #1685e8;
+    color: #fff;
+    font: inherit;
+    text-decoration: none;
+}
+
+.photo-grid .imported-photo {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.imported-photo img {
+    width: 100%;
+    height: 100%;
+    min-height: 100px;
+    object-fit: cover;
+}
+
+.imported-photo span {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    left: 5px;
+    overflow: hidden;
+    color: #fff;
+    font-size: 10px;
+    text-overflow: ellipsis;
+    text-shadow: 0 1px 4px #000;
+    white-space: nowrap;
+}
+
+.photo-viewer {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+    padding: 28px;
+    background: rgba(0, 0, 0, .92);
+}
+
+.photo-viewer img {
+    max-width: min(100%, 900px);
+    max-height: 88vh;
+    object-fit: contain;
+}
+
+.photo-emoji {
+    font-size: 100px;
+}
+
+.photo-viewer-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 2;
+    width: 42px;
+    height: 42px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .16);
+    color: #fff;
+    font-size: 25px;
+}
+
+.photo-delete {
+    position: absolute;
+    right: 18px;
+    bottom: 18px;
+    padding: 10px 14px;
+    border: 1px solid rgba(255, 255, 255, .22);
+    border-radius: 12px;
+    background: #d83d48;
+    color: #fff;
+}
+
+#browser-preview {
+    margin-top: 20px;
+    padding: 18px;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 16px;
+    background: rgba(28, 28, 30, .7);
+}
+
+#browser-preview strong {
+    display: block;
+    overflow-wrap: anywhere;
+    font-size: 17px;
+}
+
+#browser-preview p {
+    color: rgba(255, 255, 255, .7);
+}
+
+#browser-external {
+    display: block;
+    width: fit-content;
+    margin-top: 12px;
+}
+
+.mail-item {
+    cursor: pointer;
+}
+
+.mail-item:focus-visible,
+.short-card button:focus-visible,
+.calendar-grid button:focus-visible {
+    outline: 2px solid #64b5ff;
+    outline-offset: 2px;
+}
+
+.mail-dialog {
+    width: min(400px, calc(100% - 32px));
+    padding: 26px;
+    border: 1px solid rgba(255, 255, 255, .16);
+    border-radius: 18px;
+    background: #202127;
+    color: #fff;
+}
+
+.mail-dialog::backdrop {
+    background: rgba(0, 0, 0, .68);
+}
+
+.mail-dialog h2 {
+    padding-right: 24px;
+}
+
+.mail-reply-form {
+    display: grid;
+    gap: 9px;
+    margin-top: 18px;
+}
+
+.mail-reply-form input,
+.mail-reply-form textarea {
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid rgba(255, 255, 255, .13);
+    border-radius: 12px;
+    outline: 0;
+    background: rgba(255, 255, 255, .08);
+    color: #fff;
+    font: inherit;
+}
+
+.mail-reply-form textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.selected-day {
+    outline: 2px solid rgba(10, 132, 255, .8);
+}
+
+.calendar-add {
+    display: flex;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.calendar-add input {
+    flex: 1;
+    min-width: 0;
+    padding: 11px 12px;
+    border: 0;
+    border-radius: 12px;
+    outline: 0;
+    background: rgba(118, 118, 128, .18);
+    color: #fff;
+}
+
+.calendar-add button {
+    width: 42px;
+    border-radius: 12px;
+    background: #1685e8;
+    color: #fff;
+    font-size: 22px;
+}
+
+.calendar-event {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, .08);
+}
+
+.calendar-event button {
+    border: 0;
+    background: transparent;
+    color: #ff777d;
+    font-size: 20px;
+}
+
+.calendar-empty {
+    margin: 8px 0 0;
+    color: rgba(255, 255, 255, .55);
+    font-size: 12px;
+}
+
+#shorts.view.active {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.shorts-feed {
+    flex: 1;
+    min-height: 0;
+    margin-top: 10px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scroll-snap-type: y mandatory;
+    scrollbar-width: none;
+}
+
+.shorts-feed::-webkit-scrollbar {
+    display: none;
+}
+
+.short-card {
+    position: relative;
+    height: min(68vh, 570px);
+    min-height: 390px;
+    margin: 0 0 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 20px;
+    background: #202326;
+    scroll-snap-align: start;
+}
+
+.short-card video,
+.short-card .short-poster {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.short-card video {
+    background: center / cover no-repeat url("images/1.jpg");
+}
+
+.short-shade {
+    position: absolute;
+    inset: 35% 0 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, .78));
+    pointer-events: none;
+}
+
+.short-copy {
+    position: absolute;
+    right: 68px;
+    bottom: 24px;
+    left: 18px;
+    color: #fff;
+}
+
+.short-copy small {
+    font-weight: 700;
+}
+
+.short-copy h3 {
+    margin: 8px 0 12px;
+    font-size: 17px;
+}
+
+.short-copy button {
+    min-height: 38px;
+    padding: 0 12px;
+    border: 1px solid rgba(255, 255, 255, .4);
+    border-radius: 20px;
+    background: rgba(0, 0, 0, .3);
+    color: #fff;
+}
+
+.short-actions {
+    position: absolute;
+    right: 12px;
+    bottom: 24px;
+    display: grid;
+    gap: 12px;
+}
+
+.short-actions button {
+    width: 42px;
+    height: 42px;
+    border: 1px solid rgba(255, 255, 255, .3);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, .45);
+    color: #fff;
+    font-size: 21px;
+}
+
+@media (max-width: 500px) {
+    .short-card {
+        height: min(66vh, 550px);
+        min-height: 350px;
+        border-radius: 15px;
+    }
+
+}
+/* =========================================================
+   SLOT PHONE X — REAL BUTTON + HORIZONTAL HOME UPGRADE
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   REALISTIC IPHONE BUTTONS
+   --------------------------------------------------------- */
+
+button {
+    font-family: inherit;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+    cursor: pointer;
+
+    transition:
+        transform .14s ease,
+        filter .14s ease,
+        box-shadow .14s ease,
+        background .14s ease,
+        opacity .14s ease;
+}
+
+/* NORMAL BUTTON PRESS */
+button:not(:disabled):active {
+    transform: scale(.94);
+    filter: brightness(.84);
+}
+
+/* HOVER */
+button:not(:disabled):hover {
+    filter: brightness(1.08);
+}
+
+/* STANDARD IPHONE BUTTON */
+.game-button,
+.widget-button,
+.playlist-action,
+.danger-button,
+.store-item button,
+.file-drop,
+.music-menu button,
+.reminder-add button,
+#add-reminder,
+#play-all,
+.slotify-menu-button,
+.back-button {
+    border: 1px solid rgba(255,255,255,.14);
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.20),
+            rgba(255,255,255,.09)
+        );
+
+    color: white;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 14px rgba(0,0,0,.20),
+        inset 0 1px 1px rgba(255,255,255,.16),
+        inset 0 -1px 1px rgba(0,0,0,.12);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+/* HOVER LIGHT */
+.game-button:hover,
+.widget-button:hover,
+.playlist-action:hover,
+.store-item button:hover,
+.music-menu button:hover,
+#play-all:hover {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.28),
+            rgba(255,255,255,.12)
+        );
+
+    box-shadow:
+        0 7px 18px rgba(0,0,0,.25),
+        inset 0 1px 2px rgba(255,255,255,.2);
+}
+
+/* BUTTON PRESS */
+.game-button:active,
+.widget-button:active,
+.playlist-action:active,
+.store-item button:active,
+.music-menu button:active,
+#play-all:active {
+    transform: scale(.93) translateY(1px);
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,.25),
+        inset 0 2px 4px rgba(0,0,0,.18);
+}
+
+/* ---------------------------------------------------------
+   BLUE IPHONE BUTTON
+   --------------------------------------------------------- */
+
+#play-all,
+.game-button.primary,
+.primary-button {
+    background:
+        linear-gradient(
+            180deg,
+            #4da3ff,
+            #0878e8
+        );
+
+    border-color: rgba(255,255,255,.25);
+
+    box-shadow:
+        0 7px 18px rgba(0,120,255,.30),
+        inset 0 1px 2px rgba(255,255,255,.3);
+}
+
+/* ---------------------------------------------------------
+   RED BUTTON
+   --------------------------------------------------------- */
+
+.danger-button {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,75,75,.92),
+            rgba(210,35,45,.92)
+        ) !important;
+
+    border-color:
+        rgba(255,150,150,.30);
+
+    box-shadow:
+        0 7px 18px rgba(255,50,50,.22),
+        inset 0 1px 2px rgba(255,255,255,.25);
+}
+
+/* ---------------------------------------------------------
+   APP ICON PRESS
+   --------------------------------------------------------- */
+
+.ios-app-tile {
+    cursor: pointer;
+}
+
+.ios-app-tile:hover .ios-icon {
+    transform: translateY(-2px) scale(1.03);
+
+    box-shadow:
+        0 8px 18px rgba(0,0,0,.32),
+        inset 0 1px 2px rgba(255,255,255,.35);
+}
+
+.ios-app-tile:active .ios-icon {
+    transform: scale(.82);
+
+    filter: brightness(.78);
+}
+
+/* ---------------------------------------------------------
+   HORIZONTAL APP PAGES
+   --------------------------------------------------------- */
+
+#home {
+    overflow: hidden !important;
+}
+
+#home-app-grid {
+    display: grid !important;
+
+    /*
+       3 ROWS
+       Everything else goes sideways.
+    */
+
+    grid-template-rows:
+        repeat(3, 78px);
+
+    grid-template-columns:
+        repeat(6, 78px);
+
+    grid-auto-flow: column;
+
+    grid-auto-columns: 78px;
+
+    column-gap: 12px;
+    row-gap: 13px;
+
+    width: 100%;
+
+    max-height: 275px;
+
+    margin-top: 17px;
+
+    padding:
+        3px 8px 8px 3px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+
+    scrollbar-width: none;
+
+    overscroll-behavior-x: contain;
+}
+
+#home-app-grid::-webkit-scrollbar {
+    display: none;
+}
+
+/* EVERY APP PAGE IS A SNAP POSITION */
+#home-app-grid .ios-app-tile {
+    scroll-snap-align: start;
+
+    width: 78px;
+    height: 78px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 4px;
+}
+
+/* BIGGER IOS ICON */
+#home-app-grid .ios-icon {
+    width: 58px;
+    height: 58px;
+
+    flex-shrink: 0;
+
+    border-radius: 15px;
+}
+
+/* ---------------------------------------------------------
+   DON'T LET THE EXTRA CARDS FORCE VERTICAL HOME SCROLLING
+   --------------------------------------------------------- */
+
+.home-extra {
+    display: none !important;
+}
+
+/* ---------------------------------------------------------
+   LITTLE PAGE-SWIPE FEEL
+   --------------------------------------------------------- */
+
+#home-app-grid {
+    scroll-behavior: smooth;
+}
+
+/* ---------------------------------------------------------
+   HOME SCREEN WALLPAPER
+   --------------------------------------------------------- */
+
+.screen.custom-wallpaper {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/*
+   Dark glass layer over custom wallpapers.
+   This keeps app names readable.
+*/
+
+.screen.custom-wallpaper::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,.05),
+            rgba(0,0,0,.20)
+        );
+
+    z-index: 1;
+}
+
+/* Keep phone UI above wallpaper overlay */
+.screen > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Dynamic island needs to stay above everything */
+.dynamic-island {
+    z-index: 1000 !important;
+}
+
+/* ---------------------------------------------------------
+   WALLPAPER SETTINGS CARD
+   --------------------------------------------------------- */
+
+.wallpaper-settings {
+    margin-top: 16px;
+
+    padding: 17px;
+
+    border-radius: 22px;
+
+    background:
+        rgba(255,255,255,.10);
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.18),
+        inset 0 1px 1px rgba(255,255,255,.08);
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+}
+
+.wallpaper-settings h3 {
+    margin: 0 0 5px;
+    font-size: 17px;
+}
+
+.wallpaper-settings p {
+    margin: 0 0 13px;
+
+    color:
+        rgba(255,255,255,.65);
+
+    font-size: 12px;
+}
+
+.wallpaper-buttons {
+    display: flex;
+
+    gap: 9px;
+
+    flex-wrap: wrap;
+}
+
+.wallpaper-button {
+    padding: 11px 15px;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #4da3ff,
+            #0878e8
+        );
+
+    border:
+        1px solid rgba(255,255,255,.2);
+
+    color: white;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 6px 15px rgba(0,100,255,.25);
+}
+
+.wallpaper-reset {
+    padding: 11px 15px;
+
+    border-radius: 13px;
+
+    background:
+        rgba(255,255,255,.12);
+
+    border:
+        1px solid rgba(255,255,255,.12);
+
+    color: white;
+}
+
+/* ---------------------------------------------------------
+   MUSIC IMPORT BUTTON
+   --------------------------------------------------------- */
+
+.music-import {
+    margin-top: 13px;
+
+    display: flex;
+
+    gap: 10px;
+
+    align-items: center;
+}
+
+.music-import-button {
+    flex: 1;
+
+    min-height: 45px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #4da3ff,
+            #0878e8
+        );
+
+    color: white;
+
+    font-weight: 700;
+
+    border:
+        1px solid rgba(255,255,255,.2);
+
+    box-shadow:
+        0 7px 18px rgba(0,100,255,.25),
+        inset 0 1px 2px rgba(255,255,255,.25);
+}
+
+.music-import-button:active {
+    transform: scale(.94);
+}
+
+.music-import input {
+    display: none;
+}
+
+/* ---------------------------------------------------------
+   ALBUM ART FIX
+   --------------------------------------------------------- */
+
+.album-art-large {
+    overflow: hidden;
+
+    position: relative;
+}
+
+.album-art-large img,
+.playlist-image {
+    display: block;
+
+    object-fit: cover;
+
+    background:
+        linear-gradient(
+            135deg,
+            #33245f,
+            #101936
+        );
+}
+
+.album-art-large img {
+    width: 100%;
+    height: 100%;
+
+    min-height: 1px;
+}
+
+.playlist-image {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 10px;
+}
+
+/* BROKEN IMAGE FALLBACK */
+img {
+    font-size: 10px;
+}
+
+/* ---------------------------------------------------------
+   IPHONE RANGE SLIDERS
+   --------------------------------------------------------- */
+
+input[type="range"] {
+    accent-color: #0a84ff;
+
+    cursor: pointer;
+}
+
+/* ---------------------------------------------------------
+   SETTINGS BUTTONS
+   --------------------------------------------------------- */
+
+.setting-row button {
+    transition:
+        transform .15s ease,
+        background .15s ease;
+}
+
+.setting-row button:active {
+    transform: scale(.90);
+}
+
+/* ---------------------------------------------------------
+   MOBILE
+   --------------------------------------------------------- */
+
+@media (max-width: 450px) {
+
+    #home-app-grid {
+        grid-template-rows:
+            repeat(3, 76px);
+
+        grid-template-columns:
+            repeat(6, 76px);
+
+        grid-auto-columns:
+            76px;
+
+        column-gap: 10px;
+        row-gap: 11px;
+    }
+
+    #home-app-grid .ios-app-tile {
+        width: 76px;
+        height: 76px;
+    }
+
+    #home-app-grid .ios-icon {
+        width: 55px;
+        height: 55px;
+    }
+
+}
+/* =========================================================
+   SLOT PHONE X — FINAL BUTTON + SHORTCUT BAR UPGRADE
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   MAKE EVERY BUTTON LOOK LIKE A REAL IPHONE BUTTON
+   --------------------------------------------------------- */
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+
+    transition:
+        transform .14s ease,
+        filter .14s ease,
+        box-shadow .14s ease,
+        background .14s ease,
+        opacity .14s ease;
+}
+
+/* EVERY BUTTON HOVER */
+button:hover:not(:disabled) {
+    filter: brightness(1.08);
+}
+
+/* EVERY BUTTON PRESS */
+button:active:not(:disabled) {
+    transform: scale(.93);
+    filter: brightness(.82);
+}
+
+/* ---------------------------------------------------------
+   GENERAL BUTTON STYLE
+   --------------------------------------------------------- */
+
+.game-button,
+.widget-button,
+.play,
+.store-item button,
+.timer-buttons button,
+.controls button,
+.filter,
+.playlist-action,
+.back-button,
+.danger-button,
+.setting-row button,
+.music-import-button,
+.wallpaper-button,
+.wallpaper-reset,
+#play-all,
+#timer-start,
+button[data-buy] {
+    position: relative;
+
+    border: 1px solid rgba(255,255,255,.17);
+
+    color: white;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.20),
+            rgba(255,255,255,.08)
+        );
+
+    box-shadow:
+        0 5px 14px rgba(0,0,0,.22),
+        inset 0 1px 1px rgba(255,255,255,.20),
+        inset 0 -1px 1px rgba(0,0,0,.10);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    font-weight: 700;
+}
+
+/* SHINY TOP EDGE */
+.game-button::before,
+.play::before,
+.store-item button::before,
+.controls button::before,
+#play-all::before {
+    content: "";
+
+    position: absolute;
+
+    top: 1px;
+    left: 12%;
+
+    width: 76%;
+    height: 1px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,.35);
+
+    pointer-events: none;
+}
+
+/* ---------------------------------------------------------
+   BLUE IPHONE BUTTONS
+   --------------------------------------------------------- */
+
+#play-all,
+#timer-start,
+.music-import-button,
+.wallpaper-button,
+.primary-button {
+    background:
+        linear-gradient(
+            180deg,
+            #54b1ff 0%,
+            #1687ed 48%,
+            #006ed7 100%
+        );
+
+    border-color:
+        rgba(255,255,255,.28);
+
+    box-shadow:
+        0 7px 18px rgba(0,110,255,.30),
+        inset 0 1px 2px rgba(255,255,255,.35),
+        inset 0 -2px 4px rgba(0,0,0,.12);
+}
+
+/* ---------------------------------------------------------
+   WHITE PLAY BUTTON
+   --------------------------------------------------------- */
+
+.play {
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #e7e7eb
+        );
+
+    color: #15151a;
+
+    border-color:
+        rgba(255,255,255,.75);
+
+    box-shadow:
+        0 6px 15px rgba(0,0,0,.22),
+        inset 0 1px 2px rgba(255,255,255,.9);
+}
+
+/* ---------------------------------------------------------
+   GAME CONTROL BUTTONS
+   --------------------------------------------------------- */
+
+.controls button {
+    min-width: 48px;
+    height: 46px;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.24),
+            rgba(255,255,255,.09)
+        );
+}
+
+/* ---------------------------------------------------------
+   GAME EXIT BUTTON
+   --------------------------------------------------------- */
+
+.exit-game-button {
+    width: 100%;
+
+    min-height: 46px;
+
+    margin-top: 12px;
+
+    border-radius: 15px;
+
+    border: 1px solid
+        rgba(255,105,105,.28);
+
+    color: white;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,75,75,.95),
+            rgba(205,38,50,.95)
+        );
+
+    box-shadow:
+        0 7px 18px rgba(255,45,55,.22),
+        inset 0 1px 2px rgba(255,255,255,.28),
+        inset 0 -2px 4px rgba(0,0,0,.12);
+
+    font-size: 14px;
+    font-weight: 800;
+
+    letter-spacing: .1px;
+}
+
+.exit-game-button:hover {
+    background:
+        linear-gradient(
+            180deg,
+            #ff6666,
+            #dc303d
+        );
+}
+
+.exit-game-button:active {
+    transform: scale(.95);
+}
+
+/* ---------------------------------------------------------
+   BACK BUTTON
+   --------------------------------------------------------- */
+
+.back-button {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    padding: 0;
+
+    font-size: 27px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(118,118,128,.25);
+
+    box-shadow:
+        0 4px 12px rgba(0,0,0,.18),
+        inset 0 1px 1px rgba(255,255,255,.18);
+}
+
+/* ---------------------------------------------------------
+   FILTER BUTTONS
+   --------------------------------------------------------- */
+
+.filter {
+    min-height: 35px;
+
+    padding:
+        0 14px;
+
+    font-size: 11px;
+}
+
+.filter.active {
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff,
+            #e5e5ea
+        );
+
+    color: #111;
+
+    box-shadow:
+        0 5px 12px rgba(0,0,0,.22),
+        inset 0 1px 2px rgba(255,255,255,.9);
+}
+
+/* ---------------------------------------------------------
+   SETTINGS TOGGLE
+   --------------------------------------------------------- */
+
+.toggle {
+    width: 51px;
+    height: 31px;
+
+    padding: 2px;
+
+    border: 0;
+
+    border-radius: 20px;
+
+    background:
+        #555b68;
+
+    box-shadow:
+        inset 0 2px 5px rgba(0,0,0,.25);
+}
+
+.toggle span {
+    display: block;
+
+    width: 27px;
+    height: 27px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    box-shadow:
+        0 2px 5px rgba(0,0,0,.35);
+
+    transition:
+        transform .2s ease;
+}
+
+/* ---------------------------------------------------------
+   STORE BUY BUTTONS
+   --------------------------------------------------------- */
+
+.store-item button {
+    min-width: 68px;
+    min-height: 36px;
+
+    padding:
+        0 12px;
+
+    font-size: 11px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #4da5ff,
+            #0879e8
+        );
+}
+
+/* ---------------------------------------------------------
+   SHORTCUT DOCK
+   --------------------------------------------------------- */
+
+.ios-dock {
+    position: absolute;
+
+    left: 12px;
+    right: 12px;
+    bottom: 17px;
+
+    height: 78px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    align-items: center;
+
+    padding:
+        8px 10px;
+
+    border-radius: 26px;
+
+    background:
+        rgba(245,245,250,.20);
+
+    border:
+        1px solid
+        rgba(255,255,255,.22);
+
+    backdrop-filter:
+        blur(35px)
+        saturate(170%);
+
+    -webkit-backdrop-filter:
+        blur(35px)
+        saturate(170%);
+
+    box-shadow:
+        0 14px 35px rgba(0,0,0,.30),
+        inset 0 1px 1px rgba(255,255,255,.25);
+
+    z-index: 100;
+}
+
+/* SHORTCUT BUTTON */
+.ios-dock .dock-button {
+    width: 100%;
+    height: 100%;
+
+    padding: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 3px;
+
+    background: transparent;
+
+    border: 0;
+
+    box-shadow: none;
+
+    border-radius: 17px;
+}
+
+/* SHORTCUT PRESS */
+.ios-dock .dock-button:active {
+    transform: scale(.88);
+}
+
+/* SHORTCUT ICON */
+.ios-dock .dock-app-icon {
+    width: 51px;
+    height: 51px;
+
+    display: grid;
+
+    place-items: center;
+
+    border-radius: 14px;
+
+    font-size: 25px;
+
+    box-shadow:
+        0 6px 13px rgba(0,0,0,.28),
+        inset 0 1px 2px rgba(255,255,255,.35);
+}
+
+/* SHORTCUT COLORS */
+.dock-home {
+    background:
+        linear-gradient(
+            145deg,
+            #ffbd55,
+            #ed6b21
+        );
+}
+
+.dock-games {
+    background:
+        linear-gradient(
+            145deg,
+            #a875ff,
+            #6334dc
+        );
+}
+
+.dock-music {
+    background:
+        linear-gradient(
+            145deg,
+            #ff71ac,
+            #df2c69
+        );
+}
+
+.dock-settings {
+    background:
+        linear-gradient(
+            145deg,
+            #9da5b6,
+            #4a5262
+        );
+}
+
+/* REMOVE TEXT FROM DOCK */
+.ios-dock small {
+    display: none;
+}
+
+/* ---------------------------------------------------------
+   GAME LAUNCHER
+   --------------------------------------------------------- */
+
+.game-launcher {
+    margin-top: 15px;
+}
+
+.game-launcher-head {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ---------------------------------------------------------
+   MAKE CARDS FEEL CLICKABLE
+   --------------------------------------------------------- */
+
+.home-widget,
+.store-item,
+.game-card,
+.timer-card,
+.settings-card,
+.hero-card,
+.weather-details,
+.mail-item,
+.photo-card {
+    transition:
+        transform .15s ease,
+        filter .15s ease,
+        background .15s ease;
+}
+
+.home-widget:active,
+.store-item:active,
+.game-card:active,
+.timer-card:active,
+.mail-item:active,
+.photo-card:active {
+    transform: scale(.98);
+}
+
+/* ---------------------------------------------------------
+   KEEP BOTTOM DOCK ABOVE EVERYTHING
+   --------------------------------------------------------- */
+
+.ios-dock,
+.home-indicator {
+    z-index: 500;
+}
+
+/* ---------------------------------------------------------
+   SMALL PHONE
+   --------------------------------------------------------- */
+
+@media (max-width: 450px) {
+
+    .ios-dock {
+        left: 9px;
+        right: 9px;
+        bottom: 15px;
+    }
+
+    .ios-dock .dock-app-icon {
+        width: 49px;
+        height: 49px;
+    }
+
+}

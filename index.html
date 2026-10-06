@@ -1,0 +1,2035 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#090b12"
+    >
+
+    <title>SlotPhone X</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="phone-shell">
+
+    <div class="phone">
+
+        <!-- =========================
+             DYNAMIC ISLAND
+             ========================= -->
+
+        <div class="dynamic-island">
+
+            <div class="island-camera"></div>
+
+        </div>
+
+
+        <!-- =========================
+             PHONE SCREEN
+             ========================= -->
+
+        <div class="screen">
+
+
+            <!-- =========================
+                 STATUS BAR
+                 ========================= -->
+
+            <div class="status-bar">
+
+                <span id="status-time">
+                    9:41
+                </span>
+
+                <div class="status-right">
+
+                    <span>●●●</span>
+                    <span>Wi-Fi</span>
+                    <span>▰</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 APP AREA
+                 ========================= -->
+
+            <main id="app-root">
+
+
+                <!-- =====================
+                     HOME
+                     ===================== -->
+
+                <section
+                    id="home"
+                    class="view active"
+                >
+
+                    <div class="home-top">
+
+                        <div>
+
+                            <p class="eyebrow">
+                                WEDNESDAY, SEPTEMBER 23
+                            </p>
+
+                            <h1>
+                                Good afternoon
+                            </h1>
+
+                        </div>
+
+                        <button
+                            class="profile-button"
+                            data-open="settings"
+                        >
+                            👤
+                        </button>
+
+                    </div>
+
+
+                    <!-- WEATHER WIDGET -->
+
+                    <button
+                        class="hero-card"
+                        data-open="weather"
+                    >
+
+                        <div>
+
+                            <span class="widget-label" id="home-weather-label">Weather</span>
+
+                            <strong id="home-weather-temp">--°</strong>
+
+                            <p id="home-weather-summary">Loading forecast…</p>
+
+                        </div>
+
+                        <span class="weather-icon">
+                            ☀️
+                        </span>
+
+                    </button>
+
+
+                    <!-- SEARCH -->
+
+                    <div class="home-search">
+
+                        <span>🔍</span>
+
+                        <input
+                            id="app-search"
+                            type="search"
+                            placeholder="Search apps"
+                            autocomplete="off"
+                        >
+
+                    </div>
+
+
+                    <!-- APP GRID -->
+
+                    <div id="home-app-grid" class="app-grid iOS-app-grid">
+                        <button class="app-tile ios-app-tile" data-open="weather" data-name="weather">
+                            <span class="app-icon blue ios-icon">☀️</span>
+                            <b>Weather</b>
+                        </button>
+                        <button class="app-tile ios-app-tile" data-open="slotify" data-name="slotify">
+                            <span class="app-icon green ios-icon">🎵</span>
+                            <b>Slotify</b>
+                        </button>
+                        <button class="app-tile ios-app-tile" data-open="messages" data-name="messages">
+                            <span class="app-icon green ios-icon">💬</span>
+                            <b>Messages</b>
+                        </button>
+                        <button class="app-tile ios-app-tile" data-open="phone" data-name="phone">
+                            <span class="app-icon green ios-icon">📞</span>
+                            <b>Phone</b>
+                        </button>
+                        <button class="app-tile ios-app-tile" data-open="camera" data-name="camera">
+                            <span class="app-icon gray ios-icon">📷</span>
+                            <b>Camera</b>
+                        </button>
+                        <button class="app-tile ios-app-tile" data-open="photos" data-name="photos">
+                            <span class="app-icon pink ios-icon">🌈</span>
+                            <b>Photos</b>
+                        </button>
+                        <button class="app-tile ios-app-tile" data-open="shorts" data-name="shorts">
+                            <span class="app-icon red ios-icon">▶️</span>
+                            <b>Shorts</b>
+                        </button>
+                        <button class="app-tile ios-app-tile" data-open="maps" data-name="maps">
+                            <span class="app-icon green ios-icon">🗺️</span>
+                            <b>Maps</b>
+                        </button>
+                        <button class="app-tile ios-app-tile" data-open="calendar" data-name="calendar">
+                            <span class="app-icon red ios-icon">📅</span>
+                            <b>Calendar</b>
+                        </button>
+                        <button class="app-tile ios-app-tile" data-open="reminders" data-name="reminders">
+                            <span class="app-icon orange ios-icon">✓</span>
+                            <b>Reminders</b>
+                        </button>
+                        <button class="app-tile ios-app-tile" data-open="notes" data-name="notes">
+                            <span class="app-icon yellow ios-icon">📝</span>
+                            <b>Notes</b>
+                        </button>
+                        <button class="app-tile ios-app-tile" data-open="mail" data-name="mail">
+                            <span class="app-icon blue ios-icon">✉️</span>
+                            <b>Mail</b>
+                        </button>
+                        <button class="app-tile ios-app-tile" data-open="browser" data-name="safari">
+                            <span class="app-icon blue ios-icon">🧭</span>
+                            <b>Safari</b>
+                        </button>
+                        <button class="app-tile ios-app-tile" data-open="files" data-name="files">
+                            <span class="app-icon blue ios-icon">📁</span>
+                            <b>Files</b>
+                        </button>
+                        <button class="app-tile ios-app-tile" data-open="contacts" data-name="contacts">
+                            <span class="app-icon orange ios-icon">👤</span>
+                            <b>Contacts</b>
+                        </button>
+                        <button class="app-tile ios-app-tile" data-open="calculator" data-name="calculator">
+                            <span class="app-icon orange ios-icon">🧮</span>
+                            <b>Calculator</b>
+                        </button>
+                        <button class="app-tile ios-app-tile" data-open="clock" data-name="clock">
+                            <span class="app-icon gray ios-icon">🕘</span>
+                            <b>Clock</b>
+                        </button>
+                        <button class="app-tile ios-app-tile" data-open="store" data-name="app store">
+                            <span class="app-icon blue ios-icon">A</span>
+                            <b>App Store</b>
+                        </button>
+                        <button class="app-tile ios-app-tile" data-open="settings" data-name="settings">
+                            <span class="app-icon slate ios-icon">⚙️</span>
+                            <b>Settings</b>
+                        </button>
+                        <button class="app-tile ios-app-tile" data-open="assistant" data-name="assistant ai chat">
+                            <span class="app-icon purple ios-icon">✦</span>
+                            <b>Assistant</b>
+                        </button>
+                        <button class="app-tile ios-app-tile" data-open="slotify" data-name="music">
+                            <span class="app-icon pink ios-icon">♫</span>
+                            <b>Music</b>
+                        </button>
+                    </div>
+
+
+                    <!-- EXTRA SCROLLING CONTENT -->
+
+                    <div class="home-extra">
+
+
+                        <div class="home-widget">
+
+                            <div class="widget-title">
+                                <span>🎮</span>
+                                <b>Game Center</b>
+                            </div>
+
+                            <p>
+                                Your games are ready.
+                            </p>
+
+                            <button
+                                data-open="games"
+                                class="widget-button"
+                            >
+                                Play Games
+                            </button>
+
+                        </div>
+
+
+                        <div class="home-widget">
+
+                            <div class="widget-title">
+                                <span>🎵</span>
+                                <b>Now Playing</b>
+                            </div>
+
+                            <p id="home-song">
+                                Nothing playing
+                            </p>
+
+                            <button
+                                data-open="slotify"
+                                class="widget-button"
+                            >
+                                Open Slotify
+                            </button>
+
+                        </div>
+
+
+                        <div class="home-widget">
+
+                            <div class="widget-title">
+                                <span>📱</span>
+                                <b>SlotPhone</b>
+                            </div>
+
+                            <p>
+                                Scroll to explore all of
+                                your apps.
+                            </p>
+
+                            <p>
+                                You can search for an app
+                                using the search bar.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =====================
+                     GAMES
+                     ===================== -->
+
+                <section
+                    id="games"
+                    class="view"
+                >
+
+                    <div class="page-head">
+                        <button class="back-button" data-home>‹</button>
+                        <div>
+                            <p class="eyebrow">GAME CENTER</p>
+                            <h2>Games</h2>
+                        </div>
+                        <span class="page-head-icon">🎮</span>
+                    </div>
+
+                    <div class="game-search">
+                        <span>⌕</span>
+                        <input id="game-search" type="search" placeholder="Search games..." autocomplete="off">
+                    </div>
+
+                    <div class="game-filters">
+                        <button class="filter active" data-filter="all">All</button>
+                        <button class="filter" data-filter="arcade">Arcade</button>
+                        <button class="filter" data-filter="puzzle">Puzzle</button>
+                        <button class="filter" data-filter="action">Action</button>
+                    </div>
+
+                    <div class="game-hero">
+                        <div>
+                            <span>DAILY ROTATION</span>
+                            <strong id="game-daily-name">Today's featured game</strong>
+                            <small id="game-daily-desc">A new pick every day.</small>
+                        </div>
+                        <button id="game-daily-play" type="button" aria-label="Play today's featured game">Play today <span>→</span></button>
+                    </div>
+
+                    <div class="game-record-strip" aria-label="Game Center stats">
+                        <div><strong id="game-total-count">21</strong><span>GAMES</span></div>
+                        <div><strong id="game-record-count">0</strong><span>RECORDS</span></div>
+                        <div><strong id="game-top-score">0</strong><span>TOP SCORE</span></div>
+                    </div>
+
+                    <div id="game-list" class="game-list"></div>
+
+                    <div class="game-launcher">
+                        <div class="game-launcher-head">
+                            <div>
+                                <small>NOW PLAYING</small>
+                                <h3 id="game-title">Choose a game</h3>
+                            </div>
+                            <span id="game-icon">🎮</span>
+                        </div>
+                        <div id="game-stage" class="game-stage"></div>
+                    </div>
+
+                </section>
+
+
+                <!-- =====================
+                     WEATHER
+                     ===================== -->
+
+                <section
+                    id="weather"
+                    class="view"
+                >
+
+                    <div class="page-head">
+
+                        <button
+                            class="back-button"
+                            data-home
+                        >
+                            ‹
+                        </button>
+
+                        <div>
+
+                            <p class="eyebrow">
+                                FORECAST
+                            </p>
+
+                            <h2>Weather</h2>
+
+                        </div>
+
+                        <span>☀️</span>
+
+                    </div>
+
+
+                    <div class="weather-main-card">
+
+                        <p>
+                            Today
+                        </p>
+
+                        <strong id="weather-temp">--°</strong>
+
+                        <h3 id="weather-condition">Loading forecast…</h3>
+
+                        <span id="weather-feels">Waiting for forecast</span>
+
+                    </div>
+
+
+                    <div class="weather-details">
+
+                        <div>
+                            <b id="weather-humidity">💧 --%</b>
+                            <small>Humidity</small>
+                        </div>
+
+                        <div>
+                            <b id="weather-wind">💨 -- mph</b>
+                            <small>Wind</small>
+                        </div>
+
+                        <div>
+                            <b id="weather-high">⬆️ --°</b>
+                            <small>High</small>
+                        </div>
+
+                        <div>
+                            <b id="weather-low">⬇️ --°</b>
+                            <small>Low</small>
+                        </div>
+
+                    </div>
+
+
+                    <h3 class="section-title">
+                        Forecast
+                    </h3>
+
+
+                    <div id="weather-forecast" class="forecast-list"></div>
+                    <button id="weather-refresh" type="button" class="game-button">Refresh weather</button>
+
+                </section>
+
+
+
+                <!-- =====================
+                     SLOTIFY
+                     ===================== -->
+
+                <section
+                    id="slotify"
+                    class="view"
+                >
+
+                    <div class="page-head">
+                        <button class="back-button" data-home>‹</button>
+                        <div>
+                            <p class="eyebrow">MUSIC</p>
+                            <h2>Slotify</h2>
+                        </div>
+                        <button class="slotify-menu-button" id="music-menu-button">•••</button>
+                    </div>
+
+                    <div class="slotify-search">
+                        <span>⌕</span>
+                        <input id="music-search" type="search" placeholder="Search songs..." autocomplete="off">
+                        <button id="clear-music-search">×</button>
+                    </div>
+
+                    <div class="music-filter-row">
+                        <button class="music-filter active" data-music-filter="all">All</button>
+                        <button class="music-filter" data-music-filter="favorites">Favorites</button>
+                    </div>
+
+                    <div class="now-playing-card">
+                        <div class="album-art-large">
+                            <img id="song-image" src="images/1.jpg" alt="Album artwork">
+                            <div class="album-shine"></div>
+                            <div class="playing-bars" id="playing-bars">
+                                <span></span><span></span><span></span><span></span>
+                            </div>
+                        </div>
+
+                        <div class="music-info-row">
+                            <div class="music-info">
+                                <h1 id="song-name">Midnight Drive</h1>
+                                <p id="song-artist">SlotPhone Studios</p>
+                            </div>
+                            <button class="favorite-button" id="favorite-song-button" aria-label="Favorite">♡</button>
+                        </div>
+
+                        <div class="music-progress-area">
+                            <input id="music-seek" type="range" min="0" max="100" value="0" step="0.1">
+                            <div class="music-time">
+                                <span id="music-current">0:00</span>
+                                <span id="music-duration">0:00</span>
+                            </div>
+                        </div>
+
+                        <div class="music-controls">
+                            <button id="shuffle-song" aria-label="Shuffle">🔀</button>
+                            <button id="prev-song" aria-label="Previous">⏮</button>
+                            <button id="play-song" class="play-button" aria-label="Play">▶</button>
+                            <button id="next-song" aria-label="Next">⏭</button>
+                            <button id="repeat-song" aria-label="Repeat">🔁</button>
+                        </div>
+
+                        <div class="music-volume">
+                            <span>🔈</span>
+                            <input id="music-volume" type="range" min="0" max="1" step="0.01" value="0.7">
+                            <span>🔊</span>
+                        </div>
+
+                        <p id="music-status" class="music-status">Ready to play</p>
+
+                        <audio id="music-audio" preload="metadata"></audio>
+                    </div>
+
+                    <div class="playlist-title-row">
+                        <div>
+                            <h3>Your Music</h3>
+                            <small id="playlist-count">6 songs</small>
+                        </div>
+                        <button id="play-all" class="playlist-action">Play All</button>
+                    </div>
+
+                    <div id="playlist" class="improved-playlist"></div>
+
+                    <div class="music-menu hidden" id="music-menu">
+                        <button id="clear-favorites">Clear Favorites</button>
+                        <button id="reset-music">Reset Music Settings</button>
+                    </div>
+
+                </section>
+
+
+                <!-- =====================
+                     NOTES
+                     ===================== -->
+
+                <section
+                    id="notes"
+                    class="view"
+                >
+
+                    <div class="page-head">
+
+                        <button
+                            class="back-button"
+                            data-home
+                        >
+                            ‹
+                        </button>
+
+                        <div>
+
+                            <p class="eyebrow">
+                                PRODUCTIVITY
+                            </p>
+
+                            <h2>Notes</h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <textarea
+                        id="notes-area"
+                        placeholder="Start typing..."
+                    ></textarea>
+
+
+                    <p class="save-status">
+                        Autosaves on this device
+                    </p>
+
+                </section>
+
+
+
+                <!-- =====================
+                     CALCULATOR
+                     ===================== -->
+
+                <section
+                    id="calculator"
+                    class="view"
+                >
+
+                    <div class="page-head">
+
+                        <button
+                            class="back-button"
+                            data-home
+                        >
+                            ‹
+                        </button>
+
+                        <div>
+
+                            <p class="eyebrow">
+                                TOOLS
+                            </p>
+
+                            <h2>Calculator</h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="calculator">
+
+                        <input
+                            id="calc-display"
+                            readonly
+                            value="0"
+                        >
+
+
+                        <div class="calc-grid">
+
+                            <button data-calc="clear">
+                                AC
+                            </button>
+
+                            <button data-calc="back">
+                                ⌫
+                            </button>
+
+                            <button data-calc="/">
+                                ÷
+                            </button>
+
+                            <button data-calc="*">
+                                ×
+                            </button>
+
+
+                            <button data-calc="7">
+                                7
+                            </button>
+
+                            <button data-calc="8">
+                                8
+                            </button>
+
+                            <button data-calc="9">
+                                9
+                            </button>
+
+                            <button data-calc="-">
+                                −
+                            </button>
+
+
+                            <button data-calc="4">
+                                4
+                            </button>
+
+                            <button data-calc="5">
+                                5
+                            </button>
+
+                            <button data-calc="6">
+                                6
+                            </button>
+
+                            <button data-calc="+">
+                                +
+                            </button>
+
+
+                            <button data-calc="1">
+                                1
+                            </button>
+
+                            <button data-calc="2">
+                                2
+                            </button>
+
+                            <button data-calc="3">
+                                3
+                            </button>
+
+                            <button
+                                data-calc="="
+                                class="equals"
+                            >
+                                =
+                            </button>
+
+
+                            <button
+                                data-calc="0"
+                                class="zero"
+                            >
+                                0
+                            </button>
+
+                            <button data-calc=".">
+                                .
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =====================
+                     CLOCK
+                     ===================== -->
+
+                <section
+                    id="clock"
+                    class="view"
+                >
+
+                    <div class="page-head">
+
+                        <button
+                            class="back-button"
+                            data-home
+                        >
+                            ‹
+                        </button>
+
+                        <div>
+
+                            <p class="eyebrow">
+                                TIME
+                            </p>
+
+                            <h2>Clock</h2>
+
+                        </div>
+
+                        <span>⏰</span>
+
+                    </div>
+
+
+                    <div class="big-clock">
+
+                        <span id="clock-time">
+                            9:41:00
+                        </span>
+
+                        <small id="clock-date">
+                            Wednesday, September 23
+                        </small>
+
+                    </div>
+
+
+                    <div class="timer-card">
+
+                        <h3>
+                            Timer
+                        </h3>
+
+                        <div
+                            id="timer-display"
+                            class="timer-display"
+                        >
+                            00:00
+                        </div>
+
+
+                        <div class="timer-buttons">
+
+                            <button
+                                data-timer="30"
+                            >
+                                30 sec
+                            </button>
+
+                            <button
+                                data-timer="60"
+                            >
+                                1 min
+                            </button>
+
+                            <button
+                                data-timer="300"
+                            >
+                                5 min
+                            </button>
+
+                        </div>
+
+
+                        <button
+                            id="timer-start"
+                            class="game-button"
+                        >
+                            Start Timer
+                        </button>
+
+                        <div class="timer-buttons">
+                            <button id="timer-pause" type="button">Pause</button>
+                            <button id="timer-reset" type="button">Reset</button>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =====================
+                     STORE
+                     ===================== -->
+
+                <section
+                    id="store"
+                    class="view"
+                >
+
+                    <div class="page-head">
+
+                        <button
+                            class="back-button"
+                            data-home
+                        >
+                            ‹
+                        </button>
+
+                        <div>
+
+                            <p class="eyebrow">
+                                STORE
+                            </p>
+
+                            <h2>App Store</h2>
+
+                        </div>
+
+                        <span>🛍️</span>
+
+                    </div>
+
+
+                    <h3 class="section-title">Apps for this phone</h3>
+                    <div class="app-store-search"><input id="app-store-search" type="search" placeholder="Find an app" aria-label="Find an app"></div>
+                    <div id="app-catalog" class="app-catalog"></div>
+
+                    <div class="coins-card">
+
+                        <span>
+                            🪙
+                        </span>
+
+                        <div>
+
+                            <small>
+                                Your Coins
+                            </small>
+
+                            <strong id="coin-display">
+                                0
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="store-list">
+
+
+                        <article class="store-item">
+
+                            <span class="store-icon">
+                                ⚡
+                            </span>
+
+                            <div>
+
+                                <b>
+                                    Double Clicker
+                                </b>
+
+                                <p>
+                                    Make your clicks
+                                    more powerful.
+                                </p>
+
+                                <small>
+                                    100 coins
+                                </small>
+
+                            </div>
+
+                            <button
+                                data-buy="double"
+                            >
+                                Buy
+                            </button>
+
+                        </article>
+
+
+                        <article class="store-item">
+
+                            <span class="store-icon">
+                                🌈
+                            </span>
+
+                            <div>
+
+                                <b>
+                                    Neon Theme
+                                </b>
+
+                                <p>
+                                    Give SlotPhone
+                                    a neon appearance.
+                                </p>
+
+                                <small>
+                                    250 coins
+                                </small>
+
+                            </div>
+
+                            <button
+                                data-buy="neon"
+                            >
+                                Buy
+                            </button>
+
+                        </article>
+
+
+                        <article class="store-item">
+
+                            <span class="store-icon">
+                                ⭐
+                            </span>
+
+                            <div>
+
+                                <b>
+                                    Pro Badge
+                                </b>
+
+                                <p>
+                                    Unlock a special
+                                    profile badge.
+                                </p>
+
+                                <small>
+                                    500 coins
+                                </small>
+
+                            </div>
+
+                            <button
+                                data-buy="badge"
+                            >
+                                Buy
+                            </button>
+
+                        </article>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =====================
+                     SETTINGS
+                     ===================== -->
+
+                <section
+                    id="settings"
+                    class="view"
+                >
+
+                    <div class="page-head">
+
+                        <button
+                            class="back-button"
+                            data-home
+                        >
+                            ‹
+                        </button>
+
+                        <div>
+
+                            <p class="eyebrow">
+                                SYSTEM
+                            </p>
+
+                            <h2>Settings</h2>
+
+                        </div>
+
+                        <span>⚙️</span>
+
+                    </div>
+
+
+                    <div class="settings-card">
+
+                        <div class="setting-row">
+
+                            <div>
+
+                                <b>
+                                    Dark Mode
+                                </b>
+
+                                <small>
+                                    Use a darker appearance
+                                </small>
+
+                            </div>
+
+                            <button
+                                class="toggle"
+                                data-setting="dark"
+                            >
+                                <span></span>
+                            </button>
+
+                        </div>
+
+
+                        <div class="setting-row">
+
+                            <div>
+
+                                <b>
+                                    Neon Theme
+                                </b>
+
+                                <small>
+                                    Enable neon colors
+                                </small>
+
+                            </div>
+
+                            <button
+                                class="toggle"
+                                data-setting="neon"
+                            >
+                                <span></span>
+                            </button>
+
+                        </div>
+
+
+                        <div class="setting-row">
+
+                            <div>
+
+                                <b>
+                                    Game Sounds
+                                </b>
+
+                                <small>
+                                    Enable game sounds
+                                </small>
+
+                            </div>
+
+                            <button
+                                class="toggle active"
+                                data-setting="sound"
+                            >
+                                <span></span>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        id="reset-phone"
+                        class="danger-button"
+                    >
+                        Reset SlotPhone
+                    </button>
+
+                </section>
+
+
+
+                <!-- =====================
+                     PHONE
+                     ===================== -->
+
+                <section
+                    id="phone"
+                    class="view"
+                >
+
+                    <div class="page-head">
+
+                        <button
+                            class="back-button"
+                            data-home
+                        >
+                            ‹
+                        </button>
+
+                        <div>
+
+                            <p class="eyebrow">
+                                COMMUNICATION
+                            </p>
+
+                            <h2>Phone</h2>
+
+                        </div>
+
+                        <span>📞</span>
+
+                    </div>
+
+
+                    <div class="phone-number">
+                        <span id="phone-number">
+                            Enter number
+                        </span>
+                    </div>
+
+
+                    <div class="dial-pad">
+
+                        <button data-dial="1">
+                            <b>1</b>
+                        </button>
+
+                        <button data-dial="2">
+                            <b>2</b>
+                            <small>ABC</small>
+                        </button>
+
+                        <button data-dial="3">
+                            <b>3</b>
+                            <small>DEF</small>
+                        </button>
+
+                        <button data-dial="4">
+                            <b>4</b>
+                            <small>GHI</small>
+                        </button>
+
+                        <button data-dial="5">
+                            <b>5</b>
+                            <small>JKL</small>
+                        </button>
+
+                        <button data-dial="6">
+                            <b>6</b>
+                            <small>MNO</small>
+                        </button>
+
+                        <button data-dial="7">
+                            <b>7</b>
+                            <small>PQRS</small>
+                        </button>
+
+                        <button data-dial="8">
+                            <b>8</b>
+                            <small>TUV</small>
+                        </button>
+
+                        <button data-dial="9">
+                            <b>9</b>
+                            <small>WXYZ</small>
+                        </button>
+
+                        <button data-dial="*">
+                            *
+                        </button>
+
+                        <button data-dial="0">
+                            <b>0</b>
+                        </button>
+
+                        <button data-dial="#">
+                            #
+                        </button>
+
+                    </div>
+
+
+                    <div class="phone-actions">
+
+                        <button id="dial-clear">
+                            ⌫
+                        </button>
+
+                        <button
+                            id="dial-call"
+                            class="call-button"
+                        >
+                            📞
+                        </button>
+
+                        <button id="dial-delete">
+                            C
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =====================
+                     MESSAGES
+                     ===================== -->
+
+                <section
+                    id="messages"
+                    class="view"
+                >
+
+                    <div class="page-head">
+
+                        <button
+                            class="back-button"
+                            data-home
+                        >
+                            ‹
+                        </button>
+
+                        <div>
+
+                            <p class="eyebrow">
+                                MESSAGES
+                            </p>
+
+                            <h2>Messages</h2>
+
+                        </div>
+
+                        <span>💬</span>
+
+                    </div>
+
+
+                    <div class="message-contact">
+
+                        <div class="contact-avatar">
+                            J
+                        </div>
+
+                        <div>
+
+                            <b>
+                                Jamie
+                            </b>
+
+                            <small>
+                                Online
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                    <div class="message-recipient-row">
+                        <label for="message-recipient">To</label>
+                        <select id="message-recipient" aria-label="Choose a conversation"></select>
+                        <button id="send-sms" type="button" title="Open your phone’s SMS app" aria-label="Send as SMS">↗</button>
+                    </div>
+
+
+                    <div
+                        id="message-list"
+                        class="message-list"
+                    >
+
+                        <div class="message received">
+                            Hey! What are you doing?
+                        </div>
+
+                        <div class="message sent">
+                            I'm testing my new phone!
+                        </div>
+
+                        <div class="message received">
+                            That's cool 😎
+                        </div>
+
+                    </div>
+
+
+                    <div class="message-composer">
+
+                        <input
+                            id="message-input"
+                            type="text"
+                            placeholder="Message"
+                        >
+
+                        <button id="send-message">
+                            ➤
+                        </button>
+
+                    </div>
+
+                    <p class="message-local-note">In-app chat is saved on this device. Use ↗ to text a contact by SMS.</p>
+
+                </section>
+
+
+
+                 <!-- =====================
+                     ASSISTANT
+                     ===================== -->
+
+                <section id="assistant" class="view">
+                    <div class="page-head">
+                        <button class="back-button" data-home aria-label="Back to home">‹</button>
+                        <div><p class="eyebrow">ON-DEVICE CHAT</p><h2>Assistant</h2></div>
+                        <button id="assistant-clear" class="assistant-clear" type="button" aria-label="Clear conversation">⌫</button>
+                    </div>
+                    <p class="assistant-disclosure">A lightweight assistant for quick answers. It is not connected to a hosted AI service.</p>
+                    <div id="assistant-messages" class="assistant-messages" aria-live="polite"></div>
+                    <form id="assistant-form" class="assistant-composer">
+                        <input id="assistant-input" type="text" autocomplete="off" placeholder="Ask a question…" aria-label="Ask the assistant">
+                        <button type="submit" aria-label="Send message">➤</button>
+                    </form>
+                </section>
+
+
+                <!-- =====================
+                     BROWSER
+                     ===================== -->
+
+                <section
+                    id="browser"
+                    class="view"
+                >
+
+                    <div class="page-head">
+
+                        <button
+                            class="back-button"
+                            data-home
+                        >
+                            ‹
+                        </button>
+
+                        <div>
+
+                            <p class="eyebrow">WEB</p>
+                            <h2>Safari</h2>
+
+                        </div>
+
+                        <span>🌐</span>
+
+                    </div>
+
+
+                    <div class="browser-bar">
+
+                        <span>⌕</span>
+
+                        <input
+                            id="browser-url"
+                            type="search"
+                            placeholder="Search or enter website"
+                            autocomplete="off"
+                        >
+
+                        <button id="browser-go">
+                            Go
+                        </button>
+                        <button type="button" id="browser-back" aria-label="Back">‹</button>
+                        <button type="button" id="browser-forward" aria-label="Forward">›</button>
+                        <button type="button" id="browser-reload" aria-label="Reload">↻</button>
+
+                    </div>
+
+
+                    <div class="browser-home">
+
+                        <div class="browser-logo">⌕</div>
+
+                        <h1>Search or browse</h1>
+
+                        <p>Search the web, open a website, or view an image.</p>
+
+
+                        <div class="browser-shortcuts">
+
+                            <button type="button" data-search-term="https://www.youtube.com">▶ <span>YouTube</span></button>
+                            <button type="button" data-search-term="https://www.wikipedia.org">W <span>Wikipedia</span></button>
+                            <button type="button" data-search-term="https://www.nasa.gov">✦ <span>NASA</span></button>
+
+                        </div>
+
+                    </div>
+
+                    <div id="browser-results" class="browser-results" aria-live="polite"></div>
+
+                </section>
+
+
+
+                <!-- =====================
+                     CAMERA
+                     ===================== -->
+
+                <section
+                    id="camera"
+                    class="view"
+                >
+
+                    <div class="page-head">
+
+                        <button
+                            class="back-button"
+                            data-home
+                        >
+                            ‹
+                        </button>
+
+                        <div>
+
+                            <p class="eyebrow">
+                                CAMERA
+                            </p>
+
+                            <h2>Camera</h2>
+
+                        </div>
+
+                        <span>📷</span>
+
+                    </div>
+
+
+                    <div class="camera-container">
+
+                        <video
+                            id="camera-video"
+                            autoplay
+                            playsinline
+                        ></video>
+
+
+                        <div class="camera-controls">
+
+                            <button
+                                id="camera-stop"
+                            >
+                                ■
+                            </button>
+
+                            <button
+                                id="camera-capture"
+                                class="camera-shutter"
+                            >
+                                ●
+                            </button>
+
+                            <button
+                                id="camera-switch"
+                            >
+                                🔄
+                            </button>
+
+                            <button id="camera-record" type="button" aria-label="Start video recording">● REC</button>
+
+                        </div>
+
+
+                        <p id="camera-status">
+                            Camera ready
+                        </p>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =====================
+                     PHOTOS
+                     ===================== -->
+
+                <section
+                    id="photos"
+                    class="view"
+                >
+
+                    <div class="page-head">
+
+                        <button
+                            class="back-button"
+                            data-home
+                        >
+                            ‹
+                        </button>
+
+                        <div>
+
+                            <p class="eyebrow">
+                                LIBRARY
+                            </p>
+
+                            <h2>Photos</h2>
+
+                        </div>
+
+                        <span>🌈</span>
+
+                    </div>
+
+
+                    <div class="photo-grid">
+
+                        <div class="photo-card">
+                            🌅
+                        </div>
+
+                        <div class="photo-card">
+                            🏖️
+                        </div>
+
+                        <div class="photo-card">
+                            🌆
+                        </div>
+
+                        <div class="photo-card">
+                            🐶
+                        </div>
+
+                        <div class="photo-card">
+                            🌌
+                        </div>
+
+                        <div class="photo-card">
+                            🍕
+                        </div>
+
+                        <div class="photo-card">
+                            🚗
+                        </div>
+
+                        <div class="photo-card">
+                            🎮
+                        </div>
+
+                        <div class="photo-card">
+                            ☀️
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                 <!-- =====================
+                     SHORTS
+                     ===================== -->
+
+                 <section id="shorts" class="view">
+                    <div class="page-head">
+                        <button class="back-button" data-home>‹</button>
+                        <div><p class="eyebrow">VIDEO FEED</p><h2>Shorts</h2></div>
+                        <span>▶️</span>
+                    </div>
+                    <div class="shorts-upload-row">
+                        <button id="shorts-upload" type="button">＋ Upload video</button>
+                        <input id="shorts-picker" type="file" accept="video/*" multiple hidden>
+                        <span id="shorts-storage-status">Private to this device · audio plays when you tap</span>
+                    </div>
+                    <div id="shorts-feed" class="shorts-feed" aria-label="Short videos"></div>
+                 </section>
+
+
+                 <!-- =====================
+                     MAIL
+                     ===================== -->
+
+                <section
+                    id="mail"
+                    class="view"
+                >
+
+                    <div class="page-head">
+
+                        <button
+                            class="back-button"
+                            data-home
+                        >
+                            ‹
+                        </button>
+
+                        <div>
+
+                            <p class="eyebrow">
+                                COMMUNICATION
+                            </p>
+
+                            <h2>Mail</h2>
+
+                        </div>
+
+                        <span>✉️</span>
+
+                    </div>
+
+
+                    <div class="mail-list">
+
+                        <article class="mail-item">
+
+                            <div class="mail-avatar">
+                                S
+                            </div>
+
+                            <div>
+
+                                <b>
+                                    SlotPhone
+                                </b>
+
+                                <strong>
+                                    Welcome to your new phone!
+                                </strong>
+
+                                <p>
+                                    Your new apps are ready.
+                                </p>
+
+                            </div>
+
+                            <small>
+                                Now
+                            </small>
+
+                        </article>
+
+
+                        <article class="mail-item">
+
+                            <div class="mail-avatar">
+                                G
+                            </div>
+
+                            <div>
+
+                                <b>
+                                    Game Center
+                                </b>
+
+                                <strong>
+                                    Your games are waiting
+                                </strong>
+
+                                <p>
+                                    Try to beat your
+                                    high scores.
+                                </p>
+
+                            </div>
+
+                            <small>
+                                1h
+                            </small>
+
+                        </article>
+
+
+                        <article class="mail-item">
+
+                            <div class="mail-avatar">
+                                M
+                            </div>
+
+                            <div>
+
+                                <b>
+                                    Music
+                                </b>
+
+                                <strong>
+                                    New music available
+                                </strong>
+
+                                <p>
+                                    Check out Slotify.
+                                </p>
+
+                            </div>
+
+                            <small>
+                                Yesterday
+                            </small>
+
+                        </article>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =====================
+                     MAPS
+                     ===================== -->
+
+                <section
+                    id="maps"
+                    class="view"
+                >
+
+                    <div class="page-head">
+
+                        <button
+                            class="back-button"
+                            data-home
+                        >
+                            ‹
+                        </button>
+
+                        <div>
+
+                            <p class="eyebrow">
+                                NAVIGATION
+                            </p>
+
+                            <h2>Maps</h2>
+
+                        </div>
+
+                        <span>🗺️</span>
+
+                    </div>
+
+
+                    <div class="map-screen">
+
+                        <div class="map-road road-a"></div>
+                        <div class="map-road road-b"></div>
+                        <div class="map-road road-c"></div>
+
+                        <div class="map-location location-one">
+                            📍
+                        </div>
+
+                        <div class="map-location location-two">
+                            📍
+                        </div>
+
+                        <div class="map-location location-three">
+                            📍
+                        </div>
+
+                        <div class="map-you">
+                            🔵
+                        </div>
+
+                    </div>
+
+
+                    <div class="map-info">
+
+                        <h3>
+                            Your Location
+                        </h3>
+
+                        <p>
+                            SlotPhone City
+                        </p>
+
+                        <button
+                            id="open-real-maps"
+                            class="game-button"
+                        >
+                            Open Maps
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- =====================
+                     CONTACTS
+                     ===================== -->
+
+                <section
+                    id="contacts"
+                    class="view"
+                >
+
+                    <div class="page-head">
+
+                        <button
+                            class="back-button"
+                            data-home
+                        >
+                            ‹
+                        </button>
+
+                        <div>
+
+                            <p class="eyebrow">
+                                PEOPLE
+                            </p>
+
+                            <h2>Contacts</h2>
+
+                        </div>
+
+                        <span>👤</span>
+
+                    </div>
+
+
+                    <input
+                        id="contact-search"
+                        class="contact-search"
+                        type="search"
+                        placeholder="Search contacts"
+                    >
+
+                    <form id="contact-add-form" class="contact-add-form">
+                        <input id="contact-name-input" type="text" placeholder="Name" autocomplete="name" required>
+                        <input id="contact-phone-input" type="tel" placeholder="Phone number" autocomplete="tel" required>
+                        <button type="submit" aria-label="Add contact">＋</button>
+                    </form>
+
+
+                    <div
+                        id="contact-list"
+                        class="contact-list"
+                    >
+
+                        <div class="contact-row">
+
+                            <div class="contact-avatar">
+                                J
+                            </div>
+
+                            <div>
+
+                                <b>
+                                    Jamie
+                                </b>
+
+                                <small>
+                                    555-0101
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-row">
+
+                            <div class="contact-avatar">
+                                A
+                            </div>
+
+                            <div>
+
+                                <b>
+                                    Alex
+                                </b>
+
+                                <small>
+                                    555-0102
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-row">
+
+                            <div class="contact-avatar">
+                                S
+                            </div>
+
+                            <div>
+
+                                <b>
+                                    Sam
+                                </b>
+
+                                <small>
+                                    555-0103
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="contact-row">
+
+                            <div class="contact-avatar">
+                                M
+                            </div>
+
+                            <div>
+
+                                <b>
+                                    Morgan
+                                </b>
+
+                                <small>
+                                    555-0104
+                                </small>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+
+                <section id="calendar" class="view">
+                    <div class="page-head">
+                        <button class="back-button" data-home>‹</button>
+                        <div><p class="eyebrow">PRODUCTIVITY</p><h2>Calendar</h2></div>
+                        <span>📅</span>
+                    </div>
+                    <div class="calendar-card">
+                        <div class="calendar-month"><button id="cal-prev">‹</button><strong id="cal-month">September 2026</strong><button id="cal-next">›</button></div>
+                        <div class="calendar-week"><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span></div>
+                        <div id="calendar-grid" class="calendar-grid"></div>
+                    </div>
+                    <div class="widget">
+                        <div class="widget-head"><h2>Events</h2><span id="cal-selected-date"></span></div>
+                        <div class="calendar-add"><input id="calendar-event-input" type="text" placeholder="Add an event"><button id="calendar-event-add" type="button" aria-label="Add event">＋</button></div>
+                        <div id="calendar-events" class="calendar-events"></div>
+                    </div>
+                </section>
+
+                <section id="reminders" class="view">
+                    <div class="page-head">
+                        <button class="back-button" data-home>‹</button>
+                        <div><p class="eyebrow">PRODUCTIVITY</p><h2>Reminders</h2></div>
+                        <span>✓</span>
+                    </div>
+                    <div class="reminder-add"><input id="reminder-input" placeholder="New reminder..."><button id="add-reminder">+</button></div>
+                    <div id="reminder-list" class="reminder-list"></div>
+                </section>
+
+                <section id="files" class="view">
+                    <div class="page-head">
+                        <button class="back-button" data-home>‹</button>
+                        <div><p class="eyebrow">STORAGE</p><h2>Files</h2></div>
+                        <span>📁</span>
+                    </div>
+                    <div class="file-search"><span>⌕</span><input id="file-search" placeholder="Search"></div>
+                    <label class="file-drop"><input id="file-picker" type="file" multiple><span>＋</span><b>Browse Files</b><small>Choose files from this computer</small></label>
+                    <div id="file-list" class="file-list"><div class="file-row"><span>📁</span><div><b>images</b><small>Folder</small></div><strong>›</strong></div><div class="file-row"><span>🎵</span><div><b>music</b><small>Folder · 6 MP3 tracks</small></div><strong>›</strong></div></div>
+                </section>
+
+            </main>
+
+
+            <!-- =========================
+                 BOTTOM DOCK
+                 ========================= -->
+
+            <nav class="dock ios-dock">
+                <button data-open="phone" class="dock-button">
+                    <span class="dock-app-icon dock-green">📞</span><small>Phone</small>
+                </button>
+                <button data-open="messages" class="dock-button">
+                    <span class="dock-app-icon dock-green">💬</span><small>Messages</small>
+                </button>
+                <button data-open="browser" class="dock-button">
+                    <span class="dock-app-icon dock-blue">🧭</span><small>Safari</small>
+                </button>
+                <button data-open="slotify" class="dock-button">
+                    <span class="dock-app-icon dock-pink">♫</span><small>Music</small>
+                </button>
+            </nav>
+
+
+            <!-- HOME INDICATOR -->
+
+            <div class="home-indicator"></div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
